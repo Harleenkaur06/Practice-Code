@@ -112,16 +112,104 @@
 // }
 
 //printing recursively from top to bottom
+// import java.util.*;
+// public class Stackk{
+//     public static void display(Stack<Integer> st){
+//         if(st.size()==0) return;
+//         int top=st.pop();
+//         System.out.println(top);
+//         display(st);
+//         st.push(top);
+
+//     }
+//     public static void main(String[] args) {
+//         Stack<Integer> st=new Stack<>();
+//         st.push(5);
+//         st.push(3);
+//         st.push(10);
+//         st.push(90);
+//         st.push(100);
+//         display(st);
+        
+        
+//     }
+// }
+
+
+//recursive from bottom to top
+// import java.util.*;
+// public class Stackk{
+//     public static void display(Stack<Integer> st){
+//         if(st.size()==0) return;
+//         int top=st.pop();
+//         display(st);
+//         System.out.println(top);
+//         st.push(top);
+
+//     }
+//     public static void main(String[] args) {
+//         Stack<Integer> st=new Stack<>();
+//         st.push(5);
+//         st.push(3);
+//         st.push(10);
+//         st.push(90);
+//         st.push(100);
+//         display(st);
+            
+//     }
+// }
+
+//reverse a stack
+// import java.util.*;
+// public class Stackk{
+   
+//     public static void main(String[] args) {
+//         Stack<Integer> st=new Stack<>();
+//         st.push(5);
+//         st.push(3);
+//         st.push(10);
+//         st.push(90);
+//         st.push(100);
+//         System.out.println(st);
+//         Stack<Integer> temp=new Stack<>();
+//         while(st.size()>0){
+//             temp.push(st.pop());
+//         }
+//         System.out.println(temp);
+//         Stack<Integer> st2=new Stack<>();
+//         while(temp.size()>0){
+//             st2.push(temp.pop());
+//         }
+//         System.out.println(st2);
+//         while(st2.size()>0){
+//             st.push(st2.pop());
+//         }
+//         System.out.println(st);
+//     }
+// }
+
+//reversing a stack recursively
 import java.util.*;
 public class Stackk{
-    public static void display(Stack<Integer> st){
-        if(st.size()==0) return;
-        int top=st.pop();
-        System.out.println(top);
-        display(st);
-        st.push(top);
+    public static void pushatbottom(int x,Stack<Integer>st){
+        Stack<Integer> temp=new Stack<>();
+        while(st.size()>0){
+            temp.push(st.pop());
+        }
+        st.push(x);
+        while(temp.size()>0){
+            st.push(temp.pop());
+        }
 
     }
+    public static void reversestack(Stack<Integer> st){
+        if(st.size()==1) return ;
+        int top=st.pop();
+        reversestack(st);
+        pushatbottom(top,st);
+
+    }
+   
     public static void main(String[] args) {
         Stack<Integer> st=new Stack<>();
         st.push(5);
@@ -129,8 +217,8 @@ public class Stackk{
         st.push(10);
         st.push(90);
         st.push(100);
-        display(st);
-        
-        
+        System.out.println(st);
+        reversestack(st);
+        System.out.println(st);
     }
 }
