@@ -115,7 +115,7 @@
 import java.util.*;
 public class Stackk{
     public static void display(Stack<Integer> st){
-        if(st.size()>0) return;
+        if(st.size()==0) return;
         int top=st.pop();
         System.out.println(top);
         display(st);
