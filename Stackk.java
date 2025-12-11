@@ -251,6 +251,36 @@
 // }
 
 //insert at any index
+// import  java.util.*;
+// class Stackk{
+//     public static void main(String[] args) {
+//         Stack<Integer> st=new Stack<>();
+//         Scanner sc=new Scanner(System.in);
+//         st.push(5);
+//         st.push(23);
+//         st.push(90);
+//         st.push(80);
+       
+//         System.out.println(st);
+//         Stack<Integer> temp=new Stack<>();
+//         int idx=sc.nextInt();
+//         int n=sc.nextInt();
+//         while(st.size()>idx){
+//             temp.push(st.pop());
+//         }
+        
+//         st.push(n);
+
+//         //st.push(n);
+        
+//         while(temp.size()!=0){
+//             st.push(temp.pop());
+//         }
+//         System.out.println(st);
+//     }
+// }
+
+//reversing a stack using a extra stack
 import  java.util.*;
 class Stackk{
     public static void main(String[] args) {
@@ -263,18 +293,17 @@ class Stackk{
        
         System.out.println(st);
         Stack<Integer> temp=new Stack<>();
-        int idx=sc.nextInt();
-        int n=sc.nextInt();
-        while(st.size()>idx){
+        while(st.size()>0){
             temp.push(st.pop());
         }
-        
-        st.push(n);
-
-        //st.push(n);
-        
-        while(temp.size()!=0){
-            st.push(temp.pop());
+        System.out.println(temp);
+        Stack<Integer> st2=new Stack<>();
+        while(temp.size()>0){
+            st2.push(temp.pop());
+        }
+        System.out.println(st2);
+        while(st2.size()>0){
+            st.push(st2.pop());
         }
         System.out.println(st);
     }
