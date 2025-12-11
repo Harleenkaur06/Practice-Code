@@ -310,28 +310,88 @@
 // }
 
 //push at bottom recursively
-import  java.util.*;
-class Stackk{
-    public static void pushatbottom(int x,Stack<Integer> st){
-        if(st.size()==0){
-            st.push(x);
-            return ;
-        }
-        int top=st.pop();
-        pushatbottom(x, st);
-        st.push(top);
+// import  java.util.*;
+// class Stackk{
+//     public static void pushatbottom(int x,Stack<Integer> st){
+//         if(st.size()==0){
+//             st.push(x);
+//             return ;
+//         }
+//         int top=st.pop();
+//         pushatbottom(x, st);
+//         st.push(top);
 
+//     }
+//     public static void main(String[] args) {
+//         Stack<Integer> st=new Stack<>();
+//         Scanner sc=new Scanner(System.in);
+//         st.push(5);
+//         st.push(23);
+//         st.push(90);
+//         st.push(80);
+//         int x=sc.nextInt();
+//         pushatbottom(x,st);
+//         System.out.println(st);
+        
+//     }
+// }
+
+//  implementing stack using array
+  class Stackk{
+    public static class Stack{
+        int arr[]=new int[10];
+        int idx=0;
+        void push(int x){
+            if(isFull()){
+                System.out.println("stack is full");
+                return;
+            }
+            arr[idx]=x;
+            idx++;
+        }
+        int peek(){
+            if(idx==0) return -1;
+            return arr[idx-1];
+        }
+        int pop(){
+            if(idx==0) return -1;
+            int top=arr[idx-1];
+            arr[idx-1]=0;
+            idx--;
+            return top;
+        }
+        void display(){
+            for(int i=0;i<=idx-1;i++){
+                System.out.print(arr[i]+" ");
+            }
+            System.out.println();
+        }
+        int size(){
+            return idx;
+        }
+        boolean isEmpty(){
+            if(idx==0) return true;
+            return false;
+        } 
+        boolean isFull(){
+            if(idx==size()) return true;
+            return false;
+        }
     }
     public static void main(String[] args) {
-        Stack<Integer> st=new Stack<>();
-        Scanner sc=new Scanner(System.in);
+        Stack st=new Stack();
+        st.push(1);
+        st.push(2);
+        st.push(3);
+        st.push(4);
         st.push(5);
-        st.push(23);
-        st.push(90);
-        st.push(80);
-        int x=sc.nextInt();
-        pushatbottom(x,st);
-        System.out.println(st);
-        
+        st.display();//1 2 3 4 5 bottom to top
+        System.out.println(st.size());
+        st.pop();
+        st.pop();
+        st.peek();
+        st.display();//1 2 3 
+        System.out.println(st.size());
+
     }
-}
+  }
