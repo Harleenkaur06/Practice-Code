@@ -398,81 +398,116 @@
 
 
 //implementing stack using linked list
-class Stackk{
-    public static class Node{
-        int data;
-        Node next;
-         Node(int data){
-            this.data=data;
-        }
-    }
-    public static class Stack{
-        private Node head=null;
-        private int size=0;
-        void push(int x){
-            Node temp=new Node(x);
-            temp.next=head;
-            head=temp;
-            size++;
-        }
-        int pop(){
-            if(head==null){ 
-                System.out.println("Stack is empty");
-                return -1;
-            }
-            int top=head.data;
-            head=head.next;
-            size--;
-            return top;
-        }
-        int peek(){
-            if(head==null){ 
-                System.out.println("Stack is empty");
-                return -1;
-            }
-            return head.data;
-        }
-        void displayreverse(){
-            Node temp=head;
-            while(temp!=null){
-                System.out.print(temp.data+" ");
-                temp=temp.next;
-            }
-            System.out.println();
-        }
-        void displayrecursively(Node h){
+// class Stackk{
+//     public static class Node{
+//         int data;
+//         Node next;
+//          Node(int data){
+//             this.data=data;
+//         }
+//     }
+//     public static class Stack{
+//         private Node head=null;
+//         private int size=0;
+//         void push(int x){
+//             Node temp=new Node(x);
+//             temp.next=head;
+//             head=temp;
+//             size++;
+//         }
+//         int pop(){
+//             if(head==null){ 
+//                 System.out.println("Stack is empty");
+//                 return -1;
+//             }
+//             int top=head.data;
+//             head=head.next;
+//             size--;
+//             return top;
+//         }
+//         int peek(){
+//             if(head==null){ 
+//                 System.out.println("Stack is empty");
+//                 return -1;
+//             }
+//             return head.data;
+//         }
+//         void displayreverse(){
+//             Node temp=head;
+//             while(temp!=null){
+//                 System.out.print(temp.data+" ");
+//                 temp=temp.next;
+//             }
+//             System.out.println();
+//         }
+//         void displayrecursively(Node h){
             
-            if(h==null) return ;
-            displayrecursively(h.next);
-            System.out.print(h.data+" ");
+//             if(h==null) return ;
+//             displayrecursively(h.next);
+//             System.out.print(h.data+" ");
 
+//         }
+//         void display(){
+//             displayrecursively(head);
+//             System.out.println();
+//         }
+//         int size(){
+//             return size;
+//         }
+//         boolean isEmpty(){
+//             if(size==0) return true;
+//             return false;
+//         }
+//     }
+//     public static void main(String[] args) {
+//         Stack ll=new Stack();
+//         ll.push(10);  
+//         ll.push(20);
+//         ll.push(30);
+//         ll.push(40);
+//         ll.push(50);
+//         System.out.println(ll.size());
+//         ll.display();// 10 20 30 40 50
+//         ll.pop();
+//         ll.pop();
+//         System.out.println(ll.size());
+//         System.out.println(ll.peek());//30 
+//         ll.display();//10 20 30 
+
+//     }
+// }
+
+
+//practice questionsss
+
+//check whether a give bracket sequence is balanced or not
+
+import java.util.*;
+class Stackk{
+    public static boolean balance(String s){
+        Stack<Character> st=new Stack<>();
+        for(int i=0;i<s.length();i++){
+            char ch=s.charAt(i);
+            if(ch=='('){
+                st.push(ch);
+            }else{
+                if(st.size()==0) return false;
+                if(st.peek()=='(') {
+                    st.pop();
+                }
+            }
         }
-        void display(){
-            displayrecursively(head);
-            System.out.println();
-        }
-        int size(){
-            return size;
-        }
-        boolean isEmpty(){
-            if(size==0) return true;
-            return false;
-        }
+        if(st.size()>0) return false;
+        return true;
     }
     public static void main(String[] args) {
-        Stack ll=new Stack();
-        ll.push(10);  
-        ll.push(20);
-        ll.push(30);
-        ll.push(40);
-        ll.push(50);
-        System.out.println(ll.size());
-        ll.display();// 10 20 30 40 50
-        ll.pop();
-        ll.pop();
-        System.out.println(ll.size());
-        System.out.println(ll.peek());//30 
-        ll.display();//10 20 30 
-
+        Scanner sc=new Scanner(System.in);
+        String str=sc.nextLine();
+        boolean t=balance(str);
+        if(t){
+            System.out.println("balanced");
+        }else{
+            System.out.println("not");
+        }
     }
 }
