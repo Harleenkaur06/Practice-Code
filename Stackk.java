@@ -1,4 +1,4 @@
-// public class Stackk {
+
 //     public static void main(String[] args) {
 //         Stack<Integer> st=new Stack<>();
 //         st.size();
@@ -337,61 +337,142 @@
 // }
 
 //  implementing stack using array
-  class Stackk{
-    public static class Stack{
-        int arr[]=new int[10];
-        int idx=0;
-        void push(int x){
-            if(isFull()){
-                System.out.println("stack is full");
-                return;
-            }
-            arr[idx]=x;
-            idx++;
+//   class Stackk{
+//     public static class Stack{
+//         int arr[]=new int[10];
+//         int idx=0;
+//         void push(int x){
+//             if(isFull()){
+//                 System.out.println("stack is full");
+//                 return;
+//             }
+//             arr[idx]=x;
+//             idx++;
+//         }
+//         int peek(){
+//             if(idx==0) return -1;
+//             return arr[idx-1];
+//         }
+//         int pop(){
+//             if(idx==0) return -1;
+//             int top=arr[idx-1];
+//             arr[idx-1]=0;
+//             idx--;
+//             return top;
+//         }
+//         void display(){
+//             for(int i=0;i<=idx-1;i++){
+//                 System.out.print(arr[i]+" ");
+//             }
+//             System.out.println();
+//         }
+//         int size(){
+//             return idx;
+//         }
+//         boolean isEmpty(){
+//             if(idx==0) return true;
+//             return false;
+//         } 
+//         boolean isFull(){
+//             if(idx==size()) return true;
+//             return false;
+//         }
+//     }
+//     public static void main(String[] args) {
+//         Stack st=new Stack();
+//         st.push(1);
+//         st.push(2);
+//         st.push(3);
+//         st.push(4);
+//         st.push(5);
+//         st.display();//1 2 3 4 5 bottom to top
+//         System.out.println(st.size());
+//         st.pop();
+//         st.pop();
+//         st.peek();
+//         st.display();//1 2 3 
+//         System.out.println(st.size());
+
+//     }
+//   }
+
+
+//implementing stack using linked list
+class Stackk{
+    public static class Node{
+        int data;
+        Node next;
+         Node(int data){
+            this.data=data;
         }
-        int peek(){
-            if(idx==0) return -1;
-            return arr[idx-1];
+    }
+    public static class Stack{
+        private Node head=null;
+        private int size=0;
+        void push(int x){
+            Node temp=new Node(x);
+            temp.next=head;
+            head=temp;
+            size++;
         }
         int pop(){
-            if(idx==0) return -1;
-            int top=arr[idx-1];
-            arr[idx-1]=0;
-            idx--;
+            if(head==null){ 
+                System.out.println("Stack is empty");
+                return -1;
+            }
+            int top=head.data;
+            head=head.next;
+            size--;
             return top;
         }
-        void display(){
-            for(int i=0;i<=idx-1;i++){
-                System.out.print(arr[i]+" ");
+        int peek(){
+            if(head==null){ 
+                System.out.println("Stack is empty");
+                return -1;
+            }
+            return head.data;
+        }
+        void displayreverse(){
+            Node temp=head;
+            while(temp!=null){
+                System.out.print(temp.data+" ");
+                temp=temp.next;
             }
             System.out.println();
         }
+        void displayrecursively(Node h){
+            
+            if(h==null) return ;
+            displayrecursively(h.next);
+            System.out.print(h.data+" ");
+
+        }
+        void display(){
+            displayrecursively(head);
+            System.out.println();
+        }
         int size(){
-            return idx;
+            return size;
         }
         boolean isEmpty(){
-            if(idx==0) return true;
-            return false;
-        } 
-        boolean isFull(){
-            if(idx==size()) return true;
+            if(size==0) return true;
             return false;
         }
     }
     public static void main(String[] args) {
-        Stack st=new Stack();
-        st.push(1);
-        st.push(2);
-        st.push(3);
-        st.push(4);
-        st.push(5);
-        st.display();//1 2 3 4 5 bottom to top
-        System.out.println(st.size());
-        st.pop();
-        st.pop();
-        st.peek();
-        st.display();//1 2 3 
-        System.out.println(st.size());
+        Stack ll=new Stack();
+        ll.push(10);  
+        ll.push(20);
+        ll.push(30);
+        ll.push(40);
+        ll.push(50);
+        System.out.println(ll.size());
+        ll.display();// 10 20 30 40 50
+        ll.pop();
+        ll.pop();
+        System.out.println(ll.size());
+        System.out.println(ll.peek());//30 
+        ll.display();//10 20 30 
 
     }
-  }
+}
