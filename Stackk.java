@@ -482,32 +482,62 @@
 
 //check whether a give bracket sequence is balanced or not
 
+// import java.util.*;
+// class Stackk{
+//     public static boolean balance(String s){
+//         Stack<Character> st=new Stack<>();
+//         for(int i=0;i<s.length();i++){
+//             char ch=s.charAt(i);
+//             if(ch=='('){
+//                 st.push(ch);
+//             }else{
+//                 if(st.size()==0) return false;
+//                 if(st.peek()=='(') {
+//                     st.pop();
+//                 }
+//             }
+//         }
+//         if(st.size()>0) return false;
+//         return true;
+//     }
+//     public static void main(String[] args) {
+//         Scanner sc=new Scanner(System.in);
+//         String str=sc.nextLine();
+//         boolean t=balance(str);
+//         if(t){
+//             System.out.println("balanced");
+//         }else{
+//             System.out.println("not");
+//         }
+//     }
+// }
+
+//find the number of bracket we need to remove to make the given bracket sequence balanced 
 import java.util.*;
 class Stackk{
-    public static boolean balance(String s){
+    public static int balance(String s){
         Stack<Character> st=new Stack<>();
+        int c=0;
         for(int i=0;i<s.length();i++){
             char ch=s.charAt(i);
             if(ch=='('){
                 st.push(ch);
             }else{
-                if(st.size()==0) return false;
-                if(st.peek()=='(') {
+                if(st.size()==0 ){
+                    c++;
+                }else{
                     st.pop();
                 }
             }
         }
-        if(st.size()>0) return false;
-        return true;
+        int result=c+st.size();
+        return result;
+       
     }
     public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
         String str=sc.nextLine();
-        boolean t=balance(str);
-        if(t){
-            System.out.println("balanced");
-        }else{
-            System.out.println("not");
-        }
+        int t=balance(str);
+        System.out.println(t);
     }
 }
