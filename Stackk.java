@@ -543,32 +543,53 @@
 // }
 
 //remove consecutive subsequences
-import java.util.*;
+// import java.util.*;
+// class Stackk{
+//     public static int[] remove(int[] arr){
+//         Stack<Integer> st=new Stack<>();
+//         int x=arr.length;
+//         for(int i=0;i<x;i++){
+//             if(st.size()==0 || st.peek()!=arr[i]) st.push(arr[i]);
+//             else if(st.peek()==arr[i]){
+//                 if(i==x-1 || arr[i]!=arr[i+1]){
+//                     st.pop();
+//                 }
+//             }
+//         }
+//         int n=st.size();
+//         int[] r=new int[n];
+//         int m=r.length;
+//         for(int i=m-1;i>=0;i--){
+//             r[i]=st.pop();
+//         }
+//         return r;
+//     }
+//     public static void main(String[] args) {
+//         int[] arr={1,2,2,3,2,2};
+//         int[] result=remove(arr);
+//         for(int i=0;i<result.length;i++){
+//             System.out.print(result[i]+" ");
+//         }
+//     }
+// }
+
+//next greater element using 2 loops
+//the problem will time complexity
 class Stackk{
-    public static int[] remove(int[] arr){
-        Stack<Integer> st=new Stack<>();
-        int x=arr.length;
-        for(int i=0;i<x;i++){
-            if(st.size()==0 || st.peek()!=arr[i]) st.push(arr[i]);
-            else if(st.peek()==arr[i]){
-                if(i==x-1 || arr[i]!=arr[i+1]){
-                    st.pop();
+    public static void main(String[] args) {
+        int[] arr={1,3,2,1,8,6,3,4};
+        int[] res=new int[arr.length];
+        for(int i=0;i<arr.length;i++){
+            res[i]=-1;
+            for(int j=i+1;j<arr.length;j++){
+                if(arr[i]<arr[j]){
+                    res[i]=arr[j];
+                    break;
                 }
             }
         }
-        int n=st.size();
-        int[] r=new int[n];
-        int m=r.length;
-        for(int i=m-1;i>=0;i--){
-            r[i]=st.pop();
-        }
-        return r;
-    }
-    public static void main(String[] args) {
-        int[] arr={1,2,2,3,2,2};
-        int[] result=remove(arr);
-        for(int i=0;i<result.length;i++){
-            System.out.print(result[i]+" ");
+        for(int i=0;i<res.length;i++){
+            System.out.print(res[i]+" ");
         }
     }
 }
