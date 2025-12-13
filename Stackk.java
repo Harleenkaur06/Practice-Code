@@ -513,31 +513,62 @@
 // }
 
 //find the number of bracket we need to remove to make the given bracket sequence balanced 
+// import java.util.*;
+// class Stackk{
+//     public static int balance(String s){
+//         Stack<Character> st=new Stack<>();
+//         int c=0;
+//         for(int i=0;i<s.length();i++){
+//             char ch=s.charAt(i);
+//             if(ch=='('){
+//                 st.push(ch);
+//             }else{
+//                 if(st.size()==0 ){
+//                     c++;
+//                 }else{
+//                     st.pop();
+//                 }
+//             }
+//         }
+//         int result=c+st.size();
+//         return result;
+       
+//     }
+//     public static void main(String[] args) {
+//         Scanner sc=new Scanner(System.in);
+//         String str=sc.nextLine();
+//         int t=balance(str);
+//         System.out.println(t);
+//     }
+// }
+
+//remove consecutive subsequences
 import java.util.*;
 class Stackk{
-    public static int balance(String s){
-        Stack<Character> st=new Stack<>();
-        int c=0;
-        for(int i=0;i<s.length();i++){
-            char ch=s.charAt(i);
-            if(ch=='('){
-                st.push(ch);
-            }else{
-                if(st.size()==0 ){
-                    c++;
-                }else{
+    public static int[] remove(int[] arr){
+        Stack<Integer> st=new Stack<>();
+        int x=arr.length;
+        for(int i=0;i<x;i++){
+            if(st.size()==0 || st.peek()!=arr[i]) st.push(arr[i]);
+            else if(st.peek()==arr[i]){
+                if(i==x-1 || arr[i]!=arr[i+1]){
                     st.pop();
                 }
             }
         }
-        int result=c+st.size();
-        return result;
-       
+        int n=st.size();
+        int[] r=new int[n];
+        int m=r.length;
+        for(int i=m-1;i>=0;i--){
+            r[i]=st.pop();
+        }
+        return r;
     }
     public static void main(String[] args) {
-        Scanner sc=new Scanner(System.in);
-        String str=sc.nextLine();
-        int t=balance(str);
-        System.out.println(t);
+        int[] arr={1,2,2,3,2,2};
+        int[] result=remove(arr);
+        for(int i=0;i<result.length;i++){
+            System.out.print(result[i]+" ");
+        }
     }
 }
