@@ -1,8 +1,4 @@
 
-import java.util.Stack;
-
-
-//     public static void main(String[] args) {
 //         Stack<Integer> st=new Stack<>();
 //         st.size();
 //         System.out.println(st.size());//0
@@ -789,55 +785,115 @@ import java.util.Stack;
 
 
 //infix expression
+// class Stackk{
+//     public static void main(String[] args) {
+//         String str="9-5+3*4/6";
+//         Stack<Integer> val=new Stack<>();
+//         Stack<Character> oper=new Stack<>();
+//         for(int i=0;i<str.length();i++){
+//             char ch=str.charAt(i);
+//             int ascii=(int)ch;//'0'->48 && '9'->57;
+//             if(ascii>=48 && ascii<=57){
+//                 val.push(ascii-48);
+//             }else if(oper.size()==0){
+//                 oper.push(ch);
+//             }else{
+//                 if(ch=='+' || ch=='-'){
+//                     //work
+//                     int v2=val.pop();
+//                     int v1=val.pop();
+//                     if(oper.peek()=='+') val.push(v1+v2);
+//                     else if(oper.peek()=='-') val.push(v1-v2);
+//                     else if(oper.peek()=='*') val.push(v1*v2);
+//                     else { val.push(v1/v2);}
+//                     oper.pop();
+//                     oper.push(ch);
+//                 }
+//                 if(ch=='*' || ch=='/'){
+//                     if(oper.peek()=='*' || oper.peek()=='/'){
+//                         //work
+//                         int v2=val.pop();
+//                         int v1=val.pop();
+//                         if(oper.peek()=='*') val.push(v1*v2);
+//                         else { val.push(v1/v2);}
+//                         oper.pop();
+//                         oper.push(ch);
+//                     }else{
+//                         oper.push(ch);
+//                     }
+//                 }
+//             }
+
+//         }
+//         while(val.size()>1){
+//             int v2=val.pop();
+//             int v1=val.pop();
+//             if(oper.peek()=='+') val.push(v1+v2);
+//             else if(oper.peek()=='-') val.push(v1-v2);
+//             else if(oper.peek()=='*') val.push(v1*v2);
+//             else { val.push(v1/v2);}
+//             oper.pop();
+//         }
+//         System.out.println(val.peek());
+//     }
+// }
+
+
+//prefix expression
+import java.util.*;
 class Stackk{
     public static void main(String[] args) {
-        String str="9-5+3*4/6";
-        Stack<Integer> val=new Stack<>();
-        Stack<Character> oper=new Stack<>();
+        String str="9-(5+3)*4/6";
+        Stack<String> val=new Stack<>();
+        Stack<Character> op=new Stack<>();
         for(int i=0;i<str.length();i++){
             char ch=str.charAt(i);
-            int ascii=(int)ch;//'0'->48 && '9'->57;
+            int ascii=(int)ch;
             if(ascii>=48 && ascii<=57){
-                val.push(ascii-48);
-            }else if(oper.size()==0){
-                oper.push(ch);
+                String s=""+ch;
+                val.push(s);
+            }else if(op.size()==0 || ch=='('|| op.peek()=='('){
+                op.push(ch);
+            }else if(ch==')'){
+                while(op.peek()!='('){
+                    String v2=val.pop();
+                    String v1=val.pop();
+                    char o=op.pop();
+                    String x=o+v1+v2;
+                    val.push(x);
+                }
+                op.pop();
             }else{
                 if(ch=='+' || ch=='-'){
-                    //work
-                    int v2=val.pop();
-                    int v1=val.pop();
-                    if(oper.peek()=='+') val.push(v1+v2);
-                    else if(oper.peek()=='-') val.push(v1-v2);
-                    else if(oper.peek()=='*') val.push(v1*v2);
-                    else { val.push(v1/v2);}
-                    oper.pop();
-                    oper.push(ch);
-                }
-                if(ch=='*' || ch=='/'){
-                    if(oper.peek()=='*' || oper.peek()=='/'){
-                        //work
-                        int v2=val.pop();
-                        int v1=val.pop();
-                        if(oper.peek()=='*') val.push(v1*v2);
-                        else { val.push(v1/v2);}
-                        oper.pop();
-                        oper.push(ch);
-                    }else{
-                        oper.push(ch);
+                    String v2=val.pop();
+                    String v1=val.pop();
+                    char o=op.pop();
+                    String x=o+v1+v2;
+                    val.push(x);
+                    op.push(ch);
+                }else if(ch=='*' || ch=='/'){
+                    if(op.peek()=='*' || op.peek()=='/'){
+                        String v2=val.pop();
+                    String v1=val.pop();
+                    char o=op.pop();
+                    String x=o+v1+v2;
+                    val.push(x);
+                    op.push(ch);
                     }
+                    else {op.push(ch);}
                 }
             }
-
+            
         }
         while(val.size()>1){
-            int v2=val.pop();
-            int v1=val.pop();
-            if(oper.peek()=='+') val.push(v1+v2);
-            else if(oper.peek()=='-') val.push(v1-v2);
-            else if(oper.peek()=='*') val.push(v1*v2);
-            else { val.push(v1/v2);}
-            oper.pop();
+            String v2=val.pop();
+                    String v1=val.pop();
+                    char o=op.pop();
+                    String x=o+v1+v2;
+                    val.push(x);
+                    
         }
         System.out.println(val.peek());
+
     }
 }
