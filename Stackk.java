@@ -655,31 +655,77 @@
 
 
 //stock span
-import java.util.*;
-class Stackk{
-    public static int[] greater(int[] arr){
-        int n=arr.length;
-        int[] res=new int[n];
-        Stack<Integer> st=new Stack<>();
-        res[0]=1;
-        st.push(0);
-        for(int i=1;i<n;i++){
+// import java.util.*;
+// class Stackk{
+//     public static int[] greater(int[] arr){
+//         int n=arr.length;
+//         int[] res=new int[n];
+//         Stack<Integer> st=new Stack<>();
+//         res[0]=1;
+//         st.push(0);
+//         for(int i=1;i<n;i++){
             
-            while(st.size()>0 && arr[st.peek()]<arr[i]){
-                st.pop();
+//             while(st.size()>0 && arr[st.peek()]<arr[i]){
+//                 st.pop();
+//             }
+//             if(st.size()==0) res[i]=1;
+//             else{res[i]=i-st.peek();}
+//             st.push(i);
+//         }
+//         return res;
+
+//     }
+//     public static void main(String[] args) {
+//         int[] arr={100,80,60,74,85};
+//         int[] res=greater(arr);
+//         for(int i=0;i<res.length;i++){
+//             System.out.print(res[i]+" ");
+//         }
+//     }
+// }
+
+
+//min stack(special stack implementation)
+
+import java.util.Stack;
+
+class Stackk{
+    public static class Minstack{
+        Stack<Integer> st=new Stack<>();
+        Stack<Integer> min=new Stack<>();
+        void push(int val){
+            if(st.size()==0){
+                st.push(val);
+                min.push(val);
+            }else{
+                st.push(val);
+                if(min.peek()<val){
+                    min.push(min.peek());
+                }else{
+                    min.push(val);
+                }
             }
-            if(st.size()==0) res[i]=1;
-            else{res[i]=i-st.peek();}
-            st.push(i);
         }
-        return res;
+        void pop(){
+            st.pop();
+            min.pop();
+        }
+        int getmin(){
+            return min.peek();
+        }
+        
 
     }
     public static void main(String[] args) {
-        int[] arr={100,80,60,74,85};
-        int[] res=greater(arr);
-        for(int i=0;i<res.length;i++){
-            System.out.print(res[i]+" ");
-        }
+        Minstack ms=new Minstack();
+        ms.push(5);
+        ms.push(3);
+        ms.push(4);
+        ms.push(1);
+        ms.push(10);
+        System.out.println(ms.getmin());//1
+        ms.pop();
+        ms.pop();
+        System.out.println(ms.getmin());//3
     }
 }
