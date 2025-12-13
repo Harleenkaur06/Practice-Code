@@ -1,4 +1,7 @@
 
+import java.util.Stack;
+
+
 //     public static void main(String[] args) {
 //         Stack<Integer> st=new Stack<>();
 //         st.size();
@@ -687,45 +690,154 @@
 
 //min stack(special stack implementation)
 
-import java.util.Stack;
+// import java.util.Stack;
 
-class Stackk{
-    public static class Minstack{
-        Stack<Integer> st=new Stack<>();
-        Stack<Integer> min=new Stack<>();
-        void push(int val){
-            if(st.size()==0){
-                st.push(val);
-                min.push(val);
-            }else{
-                st.push(val);
-                if(min.peek()<val){
-                    min.push(min.peek());
-                }else{
-                    min.push(val);
-                }
-            }
-        }
-        void pop(){
-            st.pop();
-            min.pop();
-        }
-        int getmin(){
-            return min.peek();
-        }
+// class Stackk{
+//     public static class Minstack{
+//         Stack<Integer> st=new Stack<>();
+//         Stack<Integer> min=new Stack<>();
+//         void push(int val){
+//             if(st.size()==0){
+//                 st.push(val);
+//                 min.push(val);
+//             }else{
+//                 st.push(val);
+//                 if(min.peek()<val){
+//                     min.push(min.peek());
+//                 }else{
+//                     min.push(val);
+//                 }
+//             }
+//         }
+//         void pop(){
+//             st.pop();
+//             min.pop();
+//         }
+//         int getmin(){
+//             return min.peek();
+//         }
         
 
-    }
+//     }
+//     public static void main(String[] args) {
+//         Minstack ms=new Minstack();
+//         ms.push(5);
+//         ms.push(3);
+//         ms.push(4);
+//         ms.push(1);
+//         ms.push(10);
+//         System.out.println(ms.getmin());//1
+//         ms.pop();
+//         ms.pop();
+//         System.out.println(ms.getmin());//3
+//     }
+// }
+
+//incomplete
+//  import java.util.Stack;
+
+// class Stackk{
+//     public static class Minstack{
+//         Stack<Integer> st=new Stack<>();
+//         int min=0;
+//         void push(int val){
+//             if(st.size()==0){
+//                 st.push(val);
+//                 min=val;
+//             }else if(val>min){
+//                 st.push(val);
+//             }else{
+//                 st.push(val-min);
+//                 min=val;
+//             }
+            
+//         }
+//         void pop(){
+//             if(st.peek()>min) st.pop();
+//             else if(st.peek()<min){
+//                 int old=min-st.peek();
+//                 min=old;
+//                 st.pop();
+//             }
+            
+//         }
+//         int top(){
+//             if(st.size()==0) return -1;
+//             if(st.peek()>min) return st.peek();
+//             if(st.peek()<min) return min;
+//             return 0;
+//         }
+//         int getmin(){
+//             return min;
+//         }
+        
+
+//     }
+//     public static void main(String[] args) {
+//         Minstack ms=new Minstack();
+//         ms.push(5);
+//         ms.push(3);
+//         ms.push(4);
+//         ms.push(1);
+//         ms.push(10);
+//         System.out.println(ms.getmin());//1
+//         ms.pop();
+//         ms.pop();
+//         System.out.println(ms.getmin());//3
+//     }
+// }
+
+
+//infix expression
+class Stackk{
     public static void main(String[] args) {
-        Minstack ms=new Minstack();
-        ms.push(5);
-        ms.push(3);
-        ms.push(4);
-        ms.push(1);
-        ms.push(10);
-        System.out.println(ms.getmin());//1
-        ms.pop();
-        ms.pop();
-        System.out.println(ms.getmin());//3
+        String str="9-5+3*4/6";
+        Stack<Integer> val=new Stack<>();
+        Stack<Character> oper=new Stack<>();
+        for(int i=0;i<str.length();i++){
+            char ch=str.charAt(i);
+            int ascii=(int)ch;//'0'->48 && '9'->57;
+            if(ascii>=48 && ascii<=57){
+                val.push(ascii-48);
+            }else if(oper.size()==0){
+                oper.push(ch);
+            }else{
+                if(ch=='+' || ch=='-'){
+                    //work
+                    int v2=val.pop();
+                    int v1=val.pop();
+                    if(oper.peek()=='+') val.push(v1+v2);
+                    else if(oper.peek()=='-') val.push(v1-v2);
+                    else if(oper.peek()=='*') val.push(v1*v2);
+                    else { val.push(v1/v2);}
+                    oper.pop();
+                    oper.push(ch);
+                }
+                if(ch=='*' || ch=='/'){
+                    if(oper.peek()=='*' || oper.peek()=='/'){
+                        //work
+                        int v2=val.pop();
+                        int v1=val.pop();
+                        if(oper.peek()=='*') val.push(v1*v2);
+                        else { val.push(v1/v2);}
+                        oper.pop();
+                        oper.push(ch);
+                    }else{
+                        oper.push(ch);
+                    }
+                }
+            }
+
+        }
+        while(val.size()>1){
+            int v2=val.pop();
+            int v1=val.pop();
+            if(oper.peek()=='+') val.push(v1+v2);
+            else if(oper.peek()=='-') val.push(v1-v2);
+            else if(oper.peek()=='*') val.push(v1*v2);
+            else { val.push(v1/v2);}
+            oper.pop();
+        }
+        System.out.println(val.peek());
     }
 }
