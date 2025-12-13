@@ -29,11 +29,10 @@ public class Queues {
         q.add(5);
         Queue<Integer> temp=new LinkedList<>();
         while(q.size()>0){
-            System.out.print(q.element()+" ");
+            System.out.print(q.peek()+" ");
             temp.add(q.remove());
         }
         while(temp.size()>0){
-            
             q.add(temp.poll());
         }
     }
