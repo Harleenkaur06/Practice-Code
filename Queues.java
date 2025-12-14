@@ -260,30 +260,78 @@
 // }
 
 //reversing a queue by k elements
-import java.util.*;
-class Queues{
-    public static void main(String[] args) {
-        Queue<Integer> q=new LinkedList<>();
-        Scanner sc=new Scanner(System.in);
-        q.add(1);
-        q.add(2);
-        q.add(3);
-        q.add(4);
-        q.add(5);
-        Stack<Integer> st=new Stack<>();
-        int k=sc.nextInt();
-        System.out.println(q);
-        for(int i=1;i<=k;i++){
-            st.push(q.poll());
-        }
-        while(st.size()>0){
-            q.add(st.pop());
-        }
-        int n=q.size();
-        for(int i=0;i<n-k;i++){
-            q.add(q.poll());
-        }
-        System.out.println(q);
+// import java.util.*;
+// class Queues{
+//     public static void main(String[] args) {
+//         Queue<Integer> q=new LinkedList<>();
+//         Scanner sc=new Scanner(System.in);
+//         q.add(1);
+//         q.add(2);
+//         q.add(3);
+//         q.add(4);
+//         q.add(5);
+//         Stack<Integer> st=new Stack<>();
+//         int k=sc.nextInt();
+//         System.out.println(q);
+//         for(int i=1;i<=k;i++){
+//             st.push(q.poll());
+//         }
+//         while(st.size()>0){
+//             q.add(st.pop());
+//         }
+//         int n=q.size();
+//         for(int i=0;i<n-k;i++){
+//             q.add(q.poll());
+//         }
+//         System.out.println(q);
+//     }
+// }
 
+//implement stack using queues
+
+import java.util.*;
+
+class Queues{
+    public static class SQueue{
+        Queue<Integer> q1=new LinkedList<>();
+        void push(int val){
+            q1.add(val);
+        }
+        int peek(){
+            for(int i=1;i<=q1.size()-1;i++){
+                q1.add(q1.remove());
+            }
+            int x=q1.peek();
+            q1.add(q1.remove());
+            return x;
+        }
+        int pop(){
+            for(int i=1;i<=q1.size()-1;i++){
+                q1.add(q1.remove());
+            }
+            int x=q1.poll();
+            return x;
+        }
+        void display(){
+            for(int i=0;i<q1.size();i++){
+                int x=q1.poll();
+                System.out.print(x+" ");
+                q1.add(x);
+            }
+            System.out.println();
+        }
+         
+    }
+    public static void main(String[] args) {
+        SQueue q=new SQueue();
+        q.push(1);
+        q.push(2);
+        q.push(3);
+        q.push(4);
+        q.push(5);
+        q.display();
+        q.pop();
+        q.pop();
+        q.display();
     }
 }
