@@ -236,23 +236,52 @@
 
 
 //practice ques
+//reversing a queue
+// import java.util.*;
+// class Queues{
+//     public static void main(String[] args) {
+//         Queue<Integer> q=new LinkedList<>();
+//         q.add(1);
+//         q.add(2);
+//         q.add(3);
+//         q.add(4);
+//         q.add(5);
+//         Stack<Integer> st=new Stack<>();
+//         System.out.println(q);
+//         while(q.size()>0){
+//             st.push(q.poll());
+//         }
+//         while(st.size()>0){
+//             q.add(st.pop());
+//         }
+//         System.out.println(q);
 
+//     }
+// }
+
+//reversing a queue by k elements
 import java.util.*;
 class Queues{
     public static void main(String[] args) {
         Queue<Integer> q=new LinkedList<>();
+        Scanner sc=new Scanner(System.in);
         q.add(1);
         q.add(2);
         q.add(3);
         q.add(4);
         q.add(5);
         Stack<Integer> st=new Stack<>();
+        int k=sc.nextInt();
         System.out.println(q);
-        while(q.size()>0){
+        for(int i=1;i<=k;i++){
             st.push(q.poll());
         }
         while(st.size()>0){
             q.add(st.pop());
+        }
+        int n=q.size();
+        for(int i=0;i<n-k;i++){
+            q.add(q.poll());
         }
         System.out.println(q);
 
