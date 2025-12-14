@@ -157,79 +157,104 @@
 //  }
 
  //array implementation of circular queue
- class  Queues{
-    public static class Aqueue{
-        int f=-1;
-        int r=-1;
-        int s=0;
-        int[] arr=new int[10];
-        void add(int val){
-            if (s == arr.length) {
-                System.out.println("queue is full");
-                return;
-            }
-            if(s==0){
-                f=r=0;
-                arr[0]=val;
+//  class  Queues{
+//     public static class Aqueue{
+//         int f=-1;
+//         int r=-1;
+//         int s=0;
+//         int[] arr=new int[10];
+//         void add(int val){
+//             if (s == arr.length) {
+//                 System.out.println("queue is full");
+//                 return;
+//             }
+//             if(s==0){
+//                 f=r=0;
+//                 arr[0]=val;
                 
-            }
-            else if(r<=arr.length-1){
-                arr[++r]=val;
-            }else if(r==arr.length-1){
-                r=0;
-                arr[r]=val; 
-            }
-            s++;
-        }
-        int remove() throws Exception{
-            if(s==0) {
-                throw new Exception("queue is empty");
-            }
+//             }
+//             else if(r<=arr.length-1){
+//                 arr[++r]=val;
+//             }else if(r==arr.length-1){
+//                 r=0;
+//                 arr[r]=val; 
+//             }
+//             s++;
+//         }
+//         int remove() throws Exception{
+//             if(s==0) {
+//                 throw new Exception("queue is empty");
+//             }
             
-            else {
-                int t=arr[f];
-                if(f==arr.length-1) f=0;
+//             else {
+//                 int t=arr[f];
+//                 if(f==arr.length-1) f=0;
                 
-                else f++;
-                s--;
-                return t;
-            }
-        }
-        void display(){
-            if(s==0){
-                System.out.println("queue is empty");
-                return;
-            }else if(f<=r){
-                for(int i=f;i<=r;i++){
-                    System.out.print(arr[i]+" ");
-                }
-            }else{
-                for(int i=f;i<=arr.length-1;i++){
-                    System.out.print(arr[i]+" ");
-                }
-                for(int i=0;i<=r;i++){
-                    System.out.print(arr[i]+" ");
-                }
-            }
-            System.out.println();
-        }
+//                 else f++;
+//                 s--;
+//                 return t;
+//             }
+//         }
+//         void display(){
+//             if(s==0){
+//                 System.out.println("queue is empty");
+//                 return;
+//             }else if(f<=r){
+//                 for(int i=f;i<=r;i++){
+//                     System.out.print(arr[i]+" ");
+//                 }
+//             }else{
+//                 for(int i=f;i<=arr.length-1;i++){
+//                     System.out.print(arr[i]+" ");
+//                 }
+//                 for(int i=0;i<=r;i++){
+//                     System.out.print(arr[i]+" ");
+//                 }
+//             }
+//             System.out.println();
+//         }
 
-    }
-    public static void main(String[] args) throws Exception{
-        Aqueue q=new Aqueue();
-        //q.remove();
+//     }
+//     public static void main(String[] args) throws Exception{
+//         Aqueue q=new Aqueue();
+//         //q.remove();
+//         q.add(1);
+//         q.add(2);
+//         q.add(3);
+//         q.add(4);
+//         q.add(5);
+//         q.display();
+//         q.remove();
+//          q.remove();
+//         q.display();
+        
+
+
+//     }
+
+//  }
+
+
+//practice ques
+
+import java.util.*;
+class Queues{
+    public static void main(String[] args) {
+        Queue<Integer> q=new LinkedList<>();
         q.add(1);
         q.add(2);
         q.add(3);
         q.add(4);
         q.add(5);
-        q.display();
-        q.remove();
-         q.remove();
-        q.display();
-        
-
+        Stack<Integer> st=new Stack<>();
+        System.out.println(q);
+        while(q.size()>0){
+            st.push(q.poll());
+        }
+        while(st.size()>0){
+            q.add(st.pop());
+        }
+        System.out.println(q);
 
     }
-
- }
+}
