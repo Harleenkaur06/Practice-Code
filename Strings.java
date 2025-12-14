@@ -79,34 +79,53 @@
 // }
 
 //toggle using string
+// import java.util.*;
+// public class Strings {
+//     public static void main(String[] args) {
+//         Scanner sc=new Scanner(System.in);
+//         String str=sc.nextLine();
+//         //toggle
+//         //pHYsics;
+//         for(int i=0;i<str.length();i++){
+//             int f=0;
+//             char ch=str.charAt(i);
+//             int ascii=(int)ch;
+//             if(ch==' '){
+//                 continue;
+//             }
+//             if(ascii>=97){
+//                 f=1;//small letter
+//             }
+//             if(f==0){
+//                 ascii+=32;
+//                 char dh=(char)ascii;
+//                 str=str.substring(0,i)+dh+str.substring(i+1);
+//             }else{
+//                 ascii-=32;
+//                 char sh=(char)ascii;
+//                 str=str.substring(0,i)+sh+str.substring(i+1);
+//             }
+//         }
+        
+//         System.out.println(str);
+//     }
+// }
+
+//palindrome
 import java.util.*;
 public class Strings {
     public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
         String str=sc.nextLine();
-        //toggle
-        //pHYsics;
-        for(int i=0;i<str.length();i++){
-            int f=0;
-            char ch=str.charAt(i);
-            int ascii=(int)ch;
-            if(ch==' '){
-                continue;
-            }
-            if(ascii>=97){
-                f=1;//small letter
-            }
-            if(f==0){
-                ascii+=32;
-                char dh=(char)ascii;
-                str=str.substring(0,i)+dh+str.substring(i+1);
-            }else{
-                ascii-=32;
-                char sh=(char)ascii;
-                str=str.substring(0,i)+sh+str.substring(i+1);
-            }
+        //StringBuilder str=new StringBuilder(sc.nextLine());
+        StringBuilder gtr=new StringBuilder(str);
+        gtr.reverse();
+        String s=gtr+"";
+        if(str.equals(s)){
+            System.out.println("yes");
+        }else{
+            System.out.println("no");
         }
         
-        System.out.println(str);
     }
 }
