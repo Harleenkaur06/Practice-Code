@@ -112,20 +112,45 @@
 // }
 
 //palindrome
+// import java.util.*;
+// public class Strings {
+//     public static void main(String[] args) {
+//         Scanner sc=new Scanner(System.in);
+//         String str=sc.nextLine();
+//         //StringBuilder str=new StringBuilder(sc.nextLine());
+//         StringBuilder gtr=new StringBuilder(str);
+//         gtr.reverse();
+//         String s=gtr+"";
+//         if(str.equals(s)){
+//             System.out.println("yes");
+//         }else{
+//             System.out.println("no");
+//         }
+        
+//     }
+// }
+
+//
 import java.util.*;
 public class Strings {
     public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
         String str=sc.nextLine();
-        //StringBuilder str=new StringBuilder(sc.nextLine());
-        StringBuilder gtr=new StringBuilder(str);
-        gtr.reverse();
-        String s=gtr+"";
-        if(str.equals(s)){
+        int i=0;
+        int j=str.length()-1;
+        int f=0;
+        while(i<j){
+            if(str.charAt(i)!=str.charAt(j)){
+                f=1;
+                break;
+            }
+            i++;
+            j--;
+        }
+        if(f==0){
             System.out.println("yes");
         }else{
             System.out.println("no");
         }
-        
     }
 }
