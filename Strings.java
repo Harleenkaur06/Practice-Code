@@ -157,26 +157,49 @@
 
 
 //palindrome code with stringbuilder
-import java.util.*;
-public class Strings {
-    public static boolean isPalindrome(String s) {
-        StringBuilder sb = new StringBuilder(s);
-        sb.reverse();
+// import java.util.*;
+// public class Strings {
+//     public static boolean isPalindrome(String s) {
+//         StringBuilder sb = new StringBuilder(s);
+//         sb.reverse();
 
-        return s.equals(sb.toString());
-    }
+//         return s.equals(sb.toString());
+//     }
 
-    public static void main(String[] args) {
-        Scanner sc =new Scanner(System.in);
-        String s = sc.nextLine();
-        isPalindrome(s);
-        if(isPalindrome(s)){
-            System.out.println("palindrome");
-        }else{
-            System.out.println("not palindrome");
-        }
+//     public static void main(String[] args) {
+//         Scanner sc =new Scanner(System.in);
+//         String s = sc.nextLine();
+//         isPalindrome(s);
+//         if(isPalindrome(s)){
+//             System.out.println("palindrome");
+//         }else{
+//             System.out.println("not palindrome");
+//         }
         
+//     }
+// }
+
+//to remove duplicate value
+import java.util.Scanner;
+
+class Strings {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String s = sc.next();
+
+        StringBuilder sb = new StringBuilder();
+
+        for (int i = 0; i < s.length(); i++) {
+            char ch = s.charAt(i);
+
+            if (sb.indexOf(String.valueOf(ch)) == -1) {
+                sb.append(ch);
+            }
+        }
+
+        System.out.println(sb.toString());
     }
 }
+
 
 
