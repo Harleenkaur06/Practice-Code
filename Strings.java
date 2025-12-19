@@ -180,24 +180,57 @@
 // }
 
 //to remove duplicate value
+// import java.util.Scanner;
+
+// class Strings {
+//     public static void main(String[] args) {
+//         Scanner sc = new Scanner(System.in);
+//         String s = sc.next();
+
+//         StringBuilder sb = new StringBuilder();
+
+//         for (int i = 0; i < s.length(); i++) {
+//             char ch = s.charAt(i);
+
+//             if (sb.indexOf(String.valueOf(ch)) == -1) {
+//                 sb.append(ch);
+//             }
+//         }
+
+//         System.out.println(sb.toString());
+//     }
+// }
+
+//to check for the valid or invalid username
 import java.util.Scanner;
 
 class Strings {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         String s = sc.next();
+        int f=0;
+        for(int i=0;i<s.length();i++){
+            char ch=s.charAt(i);
+            int ascii=(int)ch;
+            if(ascii>=48 && ascii<=57 || ascii>=65 && ascii<=90 || ascii>=97 && ascii<=122){
+                if((int)s.charAt(0)>=48 && (int)s.charAt(0)<=57){
+                    f=0;
+                    break;
+                }else{
+                    f=1;
+                }
 
-        StringBuilder sb = new StringBuilder();
-
-        for (int i = 0; i < s.length(); i++) {
-            char ch = s.charAt(i);
-
-            if (sb.indexOf(String.valueOf(ch)) == -1) {
-                sb.append(ch);
+            }else{
+                System.out.println("Invalid");
+                return;
             }
+            
         }
-
-        System.out.println(sb.toString());
+        if(f==0){
+                System.out.println("Invalid");
+            }else{
+                System.out.println("Valid");
+            }
     }
 }
 
