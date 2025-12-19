@@ -201,39 +201,99 @@
 //     }
 // }
 
+//to check int valid invalid usernne approach 1;
+// import java.util.Scanner;
+//  class Strings { public static void main(String[] args) { 
+//     Scanner sc = new Scanner(System.in);
+//      String s = sc.next(); 
+//      int f=0;
+//       for(int i=0;i<s.length();i++){ 
+//         char ch=s.charAt(i); 
+//         int ascii=(int)ch; 
+//         if(ascii>=48 && ascii<=57 || ascii>=65 && ascii<=90 || ascii>=97 && ascii<=122){ 
+//             if((int)s.charAt(0)>=48 && (int)s.charAt(0)<=57){
+//                  f=0;
+//                   break; 
+//                 }else{ 
+//                     f=1;
+//                  } 
+//         }else{
+//              System.out.println("Invalid"); 
+//              return; }
+//              } 
+//              if(f==0){ 
+//                 System.out.println("Invalid");
+//              }else{ 
+//                 System.out.println("Valid");
+//              } } }
+
 //to check for the valid or invalid username
+// import java.util.Scanner;
+
+// class Strings {
+//     public static void main(String[] args) {
+//         Scanner sc = new Scanner(System.in);
+//         String s = sc.next();
+//         int f=0;
+//         if((int)s.charAt(0)>=48 && (int)s.charAt(0)<=57){
+//                     System.out.println("Invalid");
+//                     return;
+                    
+//                 }
+//         for(int i=0;i<s.length();i++){
+//             char ch=s.charAt(i);
+//             int ascii=(int)ch;
+//             if(ascii>=48 && ascii<=57 || ascii>=65 && ascii<=90 || ascii>=97 && ascii<=122){
+//                 f=1;
+//                 }else{
+//                     f=0;
+//                     break;
+//                 }
+
+//             }
+            
+        
+//         if(f==0){
+//                 System.out.println("Invalid");
+//             }else{
+//                 System.out.println("Valid");
+//             }
+//     }
+// }
+
+//approach 3
 import java.util.Scanner;
 
 class Strings {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         String s = sc.next();
-        int f=0;
-        if((int)s.charAt(0)>=48 && (int)s.charAt(0)<=57){
-                    System.out.println("Invalid");
-                    return;
-                    
-                }
-        for(int i=0;i<s.length();i++){
-            char ch=s.charAt(i);
-            int ascii=(int)ch;
-            if(ascii>=48 && ascii<=57 || ascii>=65 && ascii<=90 || ascii>=97 && ascii<=122){
-                f=1;
-                }else{
-                    f=0;
-                    break;
-                }
+        int f = 1;  
 
+        if (s.charAt(0) >= '0' && s.charAt(0) <= '9') {
+            System.out.println("Invalid");
+            return;
+        }
+
+        for (int i = 0; i < s.length(); i++) {
+            char ch = s.charAt(i);
+
+            if (!((ch >= '0' && ch <= '9') ||
+                  (ch >= 'A' && ch <= 'Z') ||
+                  (ch >= 'a' && ch <= 'z'))) {
+                f = 0;
+                break;
             }
-            
-        
-        if(f==0){
-                System.out.println("Invalid");
-            }else{
-                System.out.println("Valid");
-            }
+        }
+
+        if (f == 1) {
+            System.out.println("Valid");
+        } else {
+            System.out.println("Invalid");
+        }
     }
 }
+
 
 
 
