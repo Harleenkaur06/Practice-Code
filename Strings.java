@@ -209,23 +209,24 @@ class Strings {
         Scanner sc = new Scanner(System.in);
         String s = sc.next();
         int f=0;
+        if((int)s.charAt(0)>=48 && (int)s.charAt(0)<=57){
+                    System.out.println("Invalid");
+                    return;
+                    
+                }
         for(int i=0;i<s.length();i++){
             char ch=s.charAt(i);
             int ascii=(int)ch;
             if(ascii>=48 && ascii<=57 || ascii>=65 && ascii<=90 || ascii>=97 && ascii<=122){
-                if((int)s.charAt(0)>=48 && (int)s.charAt(0)<=57){
+                f=1;
+                }else{
                     f=0;
                     break;
-                }else{
-                    f=1;
                 }
 
-            }else{
-                System.out.println("Invalid");
-                return;
             }
             
-        }
+        
         if(f==0){
                 System.out.println("Invalid");
             }else{
