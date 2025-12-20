@@ -262,38 +262,56 @@
 // }
 
 //approach 3
-import java.util.Scanner;
+// import java.util.Scanner;
 
+// class Strings {
+//     public static void main(String[] args) {
+//         Scanner sc = new Scanner(System.in);
+//         String s = sc.next();
+//         int f = 1;  
+
+//         if (s.charAt(0) >= '0' && s.charAt(0) <= '9') {
+//             System.out.println("Invalid");
+//             return;
+//         }
+
+//         for (int i = 0; i < s.length(); i++) {
+//             char ch = s.charAt(i);
+
+//             if (!((ch >= '0' && ch <= '9') ||
+//                   (ch >= 'A' && ch <= 'Z') ||
+//                   (ch >= 'a' && ch <= 'z'))) {
+//                 f = 0;
+//                 break;
+//             }
+//         }
+
+//         if (f == 1) {
+//             System.out.println("Valid");
+//         } else {
+//             System.out.println("Invalid");
+//         }
+//     }
+// }
+
+//frequency
+import java.util.Scanner;
 class Strings {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         String s = sc.next();
-        int f = 1;  
-
-        if (s.charAt(0) >= '0' && s.charAt(0) <= '9') {
-            System.out.println("Invalid");
-            return;
-        }
-
+        int freq[] = new int[26];
         for (int i = 0; i < s.length(); i++) {
             char ch = s.charAt(i);
-
-            if (!((ch >= '0' && ch <= '9') ||
-                  (ch >= 'A' && ch <= 'Z') ||
-                  (ch >= 'a' && ch <= 'z'))) {
-                f = 0;
-                break;
-            }
+            freq[ch - 'a']++;
         }
-
-        if (f == 1) {
-            System.out.println("Valid");
-        } else {
-            System.out.println("Invalid");
+        for (int i = 0; i < 26; i++) {
+            if (freq[i] > 0) {
+                System.out.println((char)(i + 'a') + " " + freq[i]);
+            }
         }
     }
 }
-
 
 
 
