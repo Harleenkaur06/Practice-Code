@@ -295,23 +295,44 @@
 // }
 
 //frequency
+// import java.util.Scanner;
+// class Strings {
+//     public static void main(String[] args) {
+//         Scanner sc = new Scanner(System.in);
+//         String s = sc.next();
+//         int freq[] = new int[26];
+//         for (int i = 0; i < s.length(); i++) {
+//             char ch = s.charAt(i);
+//             freq[ch - 'a']++;
+//         }
+//         for (int i = 0; i < 26; i++) {
+//             if (freq[i] > 0) {
+//                 System.out.println((char)(i + 'a') + " " + freq[i]);
+//             }
+//         }
+//     }
+// }
+
+//to reverse each word 
 import java.util.Scanner;
+
 class Strings {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        String s = sc.next();
-        int freq[] = new int[26];
-        for (int i = 0; i < s.length(); i++) {
-            char ch = s.charAt(i);
-            freq[ch - 'a']++;
-        }
-        for (int i = 0; i < 26; i++) {
-            if (freq[i] > 0) {
-                System.out.println((char)(i + 'a') + " " + freq[i]);
+        String s = sc.nextLine();
+        String[] words = s.split(" ");
+        for (int i = 0; i < words.length; i++) {
+            String word = words[i];
+            String rev = "";
+            for (int j = word.length() - 1; j >= 0; j--) {
+                rev = rev + word.charAt(j);
             }
+
+            System.out.print(rev + " ");
         }
     }
 }
+
 
 
 
