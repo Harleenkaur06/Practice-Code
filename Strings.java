@@ -314,24 +314,24 @@
 // }
 
 //to reverse each word 
-import java.util.Scanner;
+// import java.util.Scanner;
 
-class Strings {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        String s = sc.nextLine();
-        String[] words = s.split(" ");
-        for (int i = 0; i < words.length; i++) {
-            String word = words[i];
-            String rev = "";
-            for (int j = word.length() - 1; j >= 0; j--) {
-                rev = rev + word.charAt(j);
-            }
+// class Strings {
+//     public static void main(String[] args) {
+//         Scanner sc = new Scanner(System.in);
+//         String s = sc.nextLine();
+//         String[] words = s.split(" ");
+//         for (int i = 0; i < words.length; i++) {
+//             String word = words[i];
+//             String rev = "";
+//             for (int j = word.length() - 1; j >= 0; j--) {
+//                 rev = rev + word.charAt(j);
+//             }
 
-            System.out.print(rev + " ");
-        }
-    }
-}
+//             System.out.print(rev + " ");
+//         }
+//     }
+// }
 
 
 
