@@ -1,14 +1,40 @@
+// import java.util.*;
+// public class Arrays {
+//     public static void main(String[] args) {
+//         Scanner sc=new Scanner(System.in);
+//         int[] arr=new int[5];
+//         for(int i=0;i<5;i++){
+//             arr[i]=sc.nextInt();
+//                }
+//         for(int i:arr){//for each element of array for(variable name: array name)
+//             System.out.println(i);
+//         }
+//     }
+    
+// }
+
+//shallow copy of array 
 import java.util.*;
 public class Arrays {
+    public static void print(int[] arr){
+        for(int i=0;i<5;i++){
+            System.out.print(arr[i]+" ");
+        }
+        System.out.println();
+    }
     public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
         int[] arr=new int[5];
+        int[] arr2=arr;
         for(int i=0;i<5;i++){
             arr[i]=sc.nextInt();
-               }
-        for(int i:arr){
-            System.out.println(i);
         }
+        print(arr);
+        print(arr2);
+        arr2[1]=0;//doing this it will change original array as well;
+        print(arr2);
+       
+
     }
     
 }
