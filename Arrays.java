@@ -40,6 +40,42 @@
 // }
 
 //count of insertion sort 
+// import java.util.Scanner;
+// // Other imports go here
+// // Do NOT change the class name
+// class Arrays
+// {
+//     public static void main(String[] args)
+//     {
+//         Scanner sc=new Scanner(System.in);
+//         int n=sc.nextInt();
+//         int[] arr=new int[n];
+//         for(int i=0;i<n;i++){
+//             arr[i]=sc.nextInt();
+//         }
+
+        
+//         int insert=0;
+//         for(int i=0;i<n;i++){
+//             int j=i;
+//             int s=0;
+//             while(j>0 && arr[j-1]>arr[j]){
+//                 int temp=arr[j-1];
+//                 arr[j-1]=arr[j];
+//                 arr[j]=temp;
+//                 j--;
+//                 s++;
+//             }
+//             if(s>0){
+//                 insert+=s+1;
+//             }
+//         }
+        
+//         System.out.println(insert);
+//     }
+//     }
+
+//count of odd frequency number in array
 import java.util.Scanner;
 // Other imports go here
 // Do NOT change the class name
@@ -50,27 +86,28 @@ class Arrays
         Scanner sc=new Scanner(System.in);
         int n=sc.nextInt();
         int[] arr=new int[n];
+        
         for(int i=0;i<n;i++){
             arr[i]=sc.nextInt();
         }
-
-        
-        int insert=0;
+        int max=0;
         for(int i=0;i<n;i++){
-            int j=i;
-            int s=0;
-            while(j>0 && arr[j-1]>arr[j]){
-                int temp=arr[j-1];
-                arr[j-1]=arr[j];
-                arr[j]=temp;
-                j--;
-                s++;
-            }
-            if(s>0){
-                insert+=s+1;
+            if(arr[i]>max){
+                max=arr[i];
             }
         }
+        int f=max+1;
+        int[] freq=new int[f];
+        for(int i=0;i<n;i++){
+            freq[arr[i]]++;
+        }
+        int c=0;
+        for(int i=0;i<f;i++){
+            if(freq[i]%2!=0){
+                c++;
+            }
+        }
+        System.out.println(c);
         
-        System.out.println(insert);
     }
     }
