@@ -14,27 +14,63 @@
 // }
 
 //shallow copy of array 
-import java.util.*;
-public class Arrays {
-    public static void print(int[] arr){
-        for(int i=0;i<5;i++){
-            System.out.print(arr[i]+" ");
-        }
-        System.out.println();
-    }
-    public static void main(String[] args) {
-        Scanner sc=new Scanner(System.in);
-        int[] arr=new int[5];
-        int[] arr2=arr;
-        for(int i=0;i<5;i++){
-            arr[i]=sc.nextInt();
-        }
-        print(arr);
-        print(arr2);
-        arr2[1]=0;//doing this it will change original array as well;
-        print(arr2);
+// import java.util.*;
+// public class Arrays {
+//     public static void print(int[] arr){
+//         for(int i=0;i<5;i++){
+//             System.out.print(arr[i]+" ");
+//         }
+//         System.out.println();
+//     }
+//     public static void main(String[] args) {
+//         Scanner sc=new Scanner(System.in);
+//         int[] arr=new int[5];
+//         int[] arr2=arr;
+//         for(int i=0;i<5;i++){
+//             arr[i]=sc.nextInt();
+//         }
+//         print(arr);
+//         print(arr2);
+//         arr2[1]=0;//doing this it will change original array as well;
+//         print(arr2);
        
 
-    }
+//     }
     
-}
+// }
+
+//count of insertion sort 
+import java.util.Scanner;
+// Other imports go here
+// Do NOT change the class name
+class Arrays
+{
+    public static void main(String[] args)
+    {
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int[] arr=new int[n];
+        for(int i=0;i<n;i++){
+            arr[i]=sc.nextInt();
+        }
+
+        
+        int insert=0;
+        for(int i=0;i<n;i++){
+            int j=i;
+            int s=0;
+            while(j>0 && arr[j-1]>arr[j]){
+                int temp=arr[j-1];
+                arr[j-1]=arr[j];
+                arr[j]=temp;
+                j--;
+                s++;
+            }
+            if(s>0){
+                insert+=s+1;
+            }
+        }
+        
+        System.out.println(insert);
+    }
+    }
