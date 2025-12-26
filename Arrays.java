@@ -313,6 +313,33 @@
 
 //given q queries, check whether if the given number is present in the array or not
 //numbers in the array can be upto 10^5
+// import java.util.*;
+// class Arrays{
+//     public static void main(String[] args) {
+        
+//         Scanner sc=new Scanner(System.in);
+//         int[] arr=new int[10];
+//         for(int i=0;i<10;i++){
+//             arr[i]=sc.nextInt();
+//         }
+//         int[] freq=new int[100005];
+//         for(int i=0;i<arr.length;i++){
+//                 freq[arr[i]]++;
+//         }
+//         int q=sc.nextInt();//no. queries
+//         while(q>0){
+//             int x=sc.nextInt();
+//             if(freq[x]>0){
+//                 System.out.println("yes");
+//             }else{
+//                 System.out.println("no");
+//             }
+//             q--;
+//         }
+//         }
+//     } 
+
+//sort an array consiting 0 and 1
 import java.util.*;
 class Arrays{
     public static void main(String[] args) {
@@ -322,20 +349,21 @@ class Arrays{
         for(int i=0;i<10;i++){
             arr[i]=sc.nextInt();
         }
-        int[] freq=new int[100005];
+        int c=0;
         for(int i=0;i<arr.length;i++){
-                freq[arr[i]]++;
-        }
-        int q=sc.nextInt();//no. queries
-        while(q>0){
-            int x=sc.nextInt();
-            if(freq[x]>0){
-                System.out.println("yes");
-            }else{
-                System.out.println("no");
+            if(arr[i]==0){
+                c++;
             }
-            q--;
         }
-
+        for(int i=0;i<arr.length;i++){
+            if(i<c){
+                arr[i]=0;
+            }else{
+                arr[i]=1;
+            }
+        }
+        for(int i=0;i<arr.length;i++){
+            System.out.print(arr[i]+" ");
+        }
         }
     } 
