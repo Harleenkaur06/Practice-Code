@@ -160,31 +160,55 @@
 //     }
 
 //finding the unique value in the array
+// import java.util.*;
+// class Arrays{
+//     public static void main(String[] args) {
+//         int count=0;
+//         Scanner sc=new Scanner(System.in);
+//         int[] arr=new int[10];
+        
+//         int x=sc.nextInt();
+//         for(int i=0;i<10;i++){
+//             arr[i]=sc.nextInt();
+//         }
+        
+//         for (int i = 0; i < 10; i++) {
+//     boolean unique = true;
+
+//     for (int j = 0; j < 10; j++) {
+//         if (i != j && arr[i] == arr[j]) {
+//             unique = false;
+//             break;
+//         }
+//     }
+
+//     if (unique) {
+//         System.out.println(arr[i]);
+//     }
+// }}
+//     }
+    
+//reversing a array
 import java.util.*;
 class Arrays{
+    public static int[] rev(int[] a){
+        int[] ans=new int[a.length];
+        int j=0;
+        for(int i=a.length-1;i>=0;i--){
+            ans[j++]=a[i];
+        }
+        return ans;
+    }
     public static void main(String[] args) {
-        int count=0;
+        
         Scanner sc=new Scanner(System.in);
         int[] arr=new int[10];
-        
-        int x=sc.nextInt();
         for(int i=0;i<10;i++){
             arr[i]=sc.nextInt();
         }
-        
-        for (int i = 0; i < 10; i++) {
-    boolean unique = true;
-
-    for (int j = 0; j < 10; j++) {
-        if (i != j && arr[i] == arr[j]) {
-            unique = false;
-            break;
+        int[] res= rev(arr);
+        for(int i=0;i<res.length;i++){
+            System.out.print(res[i]+ " ");
+        }
         }
     }
-
-    if (unique) {
-        System.out.println(arr[i]);
-    }
-}}
-    }
-    
