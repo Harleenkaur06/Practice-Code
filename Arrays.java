@@ -213,20 +213,50 @@
 //         }
 //     }
 
-//optimized reversing code
+//optimized reversing code(in -place)
+// import java.util.*;
+// class Arrays{
+//     public static int[] rev(int[] a){
+//         int i=0;
+//         int j=a.length-1;
+//         while(i<j){
+//             int t=a[i];
+//             a[i]=a[j];
+//             a[j]=t;
+//             i++;
+//             j--;
+//         }
+//         return a;
+//     }
+//     public static void main(String[] args) {
+        
+//         Scanner sc=new Scanner(System.in);
+//         int[] arr=new int[10];
+//         for(int i=0;i<10;i++){
+//             arr[i]=sc.nextInt();
+//         }
+//         int[] res= rev(arr);
+//         for(int i=0;i<res.length;i++){
+//             System.out.print(res[i]+ " ");
+//         }
+//         }
+//     }
+
+//rotate array by k steps k can be greater than length of array
 import java.util.*;
 class Arrays{
-    public static int[] rev(int[] a){
-        int i=0;
-        int j=a.length-1;
-        while(i<j){
-            int t=a[i];
-            a[i]=a[j];
-            a[j]=t;
-            i++;
-            j--;
+    public static int[] rotate(int[] a,int k){
+        int n=a.length;
+        k=k%n;
+        int[] ans=new int[n];
+        int j=0;
+        for(int i=n-k;i<n;i++){
+            ans[j++]=a[i];
         }
-        return a;
+        for(int i=0;i<n-k;i++){
+            ans[j++]=a[i];
+        }
+        return ans;
     }
     public static void main(String[] args) {
         
@@ -235,9 +265,12 @@ class Arrays{
         for(int i=0;i<10;i++){
             arr[i]=sc.nextInt();
         }
-        int[] res= rev(arr);
+        int k=sc.nextInt();
+
+        int[] res= rotate(arr,k);
         for(int i=0;i<res.length;i++){
             System.out.print(res[i]+ " ");
         }
         }
-    }
+    } 
+
