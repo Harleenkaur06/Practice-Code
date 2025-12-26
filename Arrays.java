@@ -242,21 +242,58 @@
 //         }
 //     }
 
-//rotate array by k steps k can be greater than length of array
+// rotate array by k steps k can be greater than length of array
+// import java.util.*;
+// class Arrays{
+    
+//     public static int[] rotate(int[] a,int k){
+//         int n=a.length;
+//         k=k%n;
+//         int[] ans=new int[n];
+//         int j=0;
+//         for(int i=n-k;i<n;i++){
+//             ans[j++]=a[i];
+//         }
+//         for(int i=0;i<n-k;i++){
+//             ans[j++]=a[i];
+//         }
+//         return ans;
+//     }
+//     public static void main(String[] args) {
+        
+//         Scanner sc=new Scanner(System.in);
+//         int[] arr=new int[10];
+//         for(int i=0;i<10;i++){
+//             arr[i]=sc.nextInt();
+//         }
+//         int k=sc.nextInt();
+
+//         int[] res= rotate(arr,k);
+//         for(int i=0;i<res.length;i++){
+//             System.out.print(res[i]+ " ");
+//         }
+//         }
+//     } 
+
+//optimized (in-place) rotate array by k steps k can be greater than length of array
 import java.util.*;
 class Arrays{
-    public static int[] rotate(int[] a,int k){
+    public static void reverse(int[] a,int i,int j){
+        while(i<j){
+            int t=a[i];
+            a[i]=a[j];
+            a[j]=t;
+            i++;
+            j--;
+        }
+    }
+    public static void rotate(int[] a,int k){
         int n=a.length;
         k=k%n;
-        int[] ans=new int[n];
-        int j=0;
-        for(int i=n-k;i<n;i++){
-            ans[j++]=a[i];
-        }
-        for(int i=0;i<n-k;i++){
-            ans[j++]=a[i];
-        }
-        return ans;
+        reverse(a, 0, n-k-1);
+        reverse(a, n-k, n-1);
+        reverse(a, 0, n-1);  
+       
     }
     public static void main(String[] args) {
         
@@ -267,10 +304,9 @@ class Arrays{
         }
         int k=sc.nextInt();
 
-        int[] res= rotate(arr,k);
-        for(int i=0;i<res.length;i++){
-            System.out.print(res[i]+ " ");
+        rotate(arr,k);
+        for(int i=0;i<arr.length;i++){
+            System.out.print(arr[i]+ " ");
         }
         }
     } 
-
