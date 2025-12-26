@@ -276,25 +276,45 @@
 //     } 
 
 //optimized (in-place) rotate array by k steps k can be greater than length of array
+// import java.util.*;
+// class Arrays{
+//     public static void reverse(int[] a,int i,int j){
+//         while(i<j){
+//             int t=a[i];
+//             a[i]=a[j];
+//             a[j]=t;
+//             i++;
+//             j--;
+//         }
+//     }
+//     public static void rotate(int[] a,int k){
+//         int n=a.length;
+//         k=k%n;
+//         reverse(a, 0, n-k-1);
+//         reverse(a, n-k, n-1);
+//         reverse(a, 0, n-1);  
+       
+//     }
+//     public static void main(String[] args) {
+        
+//         Scanner sc=new Scanner(System.in);
+//         int[] arr=new int[10];
+//         for(int i=0;i<10;i++){
+//             arr[i]=sc.nextInt();
+//         }
+//         int k=sc.nextInt();
+
+//         rotate(arr,k);
+//         for(int i=0;i<arr.length;i++){
+//             System.out.print(arr[i]+ " ");
+//         }
+//         }
+//     } 
+
+//given q queries, check whether if the given number is present in the array or not
+//numbers in the array can be upto 10^5
 import java.util.*;
 class Arrays{
-    public static void reverse(int[] a,int i,int j){
-        while(i<j){
-            int t=a[i];
-            a[i]=a[j];
-            a[j]=t;
-            i++;
-            j--;
-        }
-    }
-    public static void rotate(int[] a,int k){
-        int n=a.length;
-        k=k%n;
-        reverse(a, 0, n-k-1);
-        reverse(a, n-k, n-1);
-        reverse(a, 0, n-1);  
-       
-    }
     public static void main(String[] args) {
         
         Scanner sc=new Scanner(System.in);
@@ -302,11 +322,20 @@ class Arrays{
         for(int i=0;i<10;i++){
             arr[i]=sc.nextInt();
         }
-        int k=sc.nextInt();
-
-        rotate(arr,k);
+        int[] freq=new int[100005];
         for(int i=0;i<arr.length;i++){
-            System.out.print(arr[i]+ " ");
+                freq[arr[i]]++;
         }
+        int q=sc.nextInt();//no. queries
+        while(q>0){
+            int x=sc.nextInt();
+            if(freq[x]>0){
+                System.out.println("yes");
+            }else{
+                System.out.println("no");
+            }
+            q--;
+        }
+
         }
     } 
