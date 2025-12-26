@@ -136,6 +136,30 @@
 //     }
 
 //no of triplets whose sum is equal to x
+// import java.util.*;
+// class Arrays{
+//     public static void main(String[] args) {
+//         int count=0;
+//         Scanner sc=new Scanner(System.in);
+//         int[] arr=new int[6];
+        
+//         int x=sc.nextInt();
+//         for(int i=0;i<6;i++){
+//             arr[i]=sc.nextInt();
+//         }
+//         for (int i = 0; i < 6; i++) {
+//             for(int j=i+1;j<6;j++){
+//                 for(int k=j+1;k<6;k++){
+//                 if(arr[i]+arr[j]+arr[k]==x){
+//                     count++;
+//                 }
+//             }
+//         }}
+//         System.out.println(count);
+//     }
+//     }
+
+//finding the unique value in the array
 import java.util.*;
 class Arrays{
     public static void main(String[] args) {
@@ -147,15 +171,20 @@ class Arrays{
         for(int i=0;i<10;i++){
             arr[i]=sc.nextInt();
         }
+        
         for (int i = 0; i < 10; i++) {
-            for(int j=i+1;j<10;j++){
-                for(int k=j+1;k<10;k++){
-                if(arr[i]+arr[j]+arr[k]==x){
-                    count++;
-                }
-            }
-        }}
-        System.out.println(count);
-    }
+    boolean unique = true;
+
+    for (int j = 0; j < 10; j++) {
+        if (i != j && arr[i] == arr[j]) {
+            unique = false;
+            break;
+        }
     }
 
+    if (unique) {
+        System.out.println(arr[i]);
+    }
+}}
+    }
+    
