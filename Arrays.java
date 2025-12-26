@@ -189,15 +189,44 @@
 //     }
     
 //reversing a array
+// import java.util.*;
+// class Arrays{
+//     public static int[] rev(int[] a){
+//         int[] ans=new int[a.length];
+//         int j=0;
+//         for(int i=a.length-1;i>=0;i--){
+//             ans[j++]=a[i];
+//         }
+//         return ans;
+//     }
+//     public static void main(String[] args) {
+        
+//         Scanner sc=new Scanner(System.in);
+//         int[] arr=new int[10];
+//         for(int i=0;i<10;i++){
+//             arr[i]=sc.nextInt();
+//         }
+//         int[] res= rev(arr);
+//         for(int i=0;i<res.length;i++){
+//             System.out.print(res[i]+ " ");
+//         }
+//         }
+//     }
+
+//optimized reversing code
 import java.util.*;
 class Arrays{
     public static int[] rev(int[] a){
-        int[] ans=new int[a.length];
-        int j=0;
-        for(int i=a.length-1;i>=0;i--){
-            ans[j++]=a[i];
+        int i=0;
+        int j=a.length-1;
+        while(i<j){
+            int t=a[i];
+            a[i]=a[j];
+            a[j]=t;
+            i++;
+            j--;
         }
-        return ans;
+        return a;
     }
     public static void main(String[] args) {
         
