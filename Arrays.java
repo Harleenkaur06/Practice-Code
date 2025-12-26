@@ -340,6 +340,35 @@
 //     } 
 
 //sort an array consiting 0 and 1
+// import java.util.*;
+// class Arrays{
+//     public static void main(String[] args) {
+        
+//         Scanner sc=new Scanner(System.in);
+//         int[] arr=new int[10];
+//         for(int i=0;i<10;i++){
+//             arr[i]=sc.nextInt();
+//         }
+//         int c=0;
+//         for(int i=0;i<arr.length;i++){
+//             if(arr[i]==0){
+//                 c++;
+//             }
+//         }
+//         for(int i=0;i<arr.length;i++){
+//             if(i<c){
+//                 arr[i]=0;
+//             }else{
+//                 arr[i]=1;
+//             }
+//         }
+//         for(int i=0;i<arr.length;i++){
+//             System.out.print(arr[i]+" ");
+//         }
+//         }
+//     } 
+
+//in one traverse
 import java.util.*;
 class Arrays{
     public static void main(String[] args) {
@@ -349,21 +378,24 @@ class Arrays{
         for(int i=0;i<10;i++){
             arr[i]=sc.nextInt();
         }
-        int c=0;
-        for(int i=0;i<arr.length;i++){
+        int i=0,j=arr.length-1;
+        while(i<j){
+            if(arr[i]==1 && arr[j]==0){
+                int t=arr[i];
+                arr[i]=arr[j];
+                arr[j]=t;
+                
+            }
             if(arr[i]==0){
-                c++;
+                i++;
             }
-        }
-        for(int i=0;i<arr.length;i++){
-            if(i<c){
-                arr[i]=0;
-            }else{
-                arr[i]=1;
+            if(arr[j]==1){
+                j--;
             }
+            
         }
-        for(int i=0;i<arr.length;i++){
-            System.out.print(arr[i]+" ");
+        for(int k=0;k<arr.length;k++){
+            System.out.print(arr[k]+" ");
         }
         }
     } 
