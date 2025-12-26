@@ -75,39 +75,62 @@
 //     }
 //     }
 
-//count of odd frequency number in array 
-import java.util.Scanner;
-// Other imports go here
+//count of odd frequency number in array
+//import java.util.*; 
 // Do NOT change the class name
-class Arrays
-{
-    public static void main(String[] args)
-    {
-        Scanner sc=new Scanner(System.in);
-        int n=sc.nextInt();
-        int[] arr=new int[n];
+// class Arrays
+// {
+//     public static void main(String[] args)
+//     {
+//         Scanner sc=new Scanner(System.in);
+//         int n=sc.nextInt();
+//         int[] arr=new int[n];
         
-        for(int i=0;i<n;i++){
+//         for(int i=0;i<n;i++){
+//             arr[i]=sc.nextInt();
+//         }
+//         int max=0;
+//         for(int i=0;i<n;i++){
+//             if(arr[i]>max){
+//                 max=arr[i];
+//             }
+//         }
+//         int f=max+1;
+//         int[] freq=new int[f];
+//         for(int i=0;i<n;i++){
+//             freq[arr[i]]++;
+//         }
+//         int c=0;
+//         for(int i=0;i<f;i++){
+//             if(freq[i]%2!=0){
+//                 c++;
+//             }
+//         }
+//         System.out.println(c);
+        
+//     }
+//     }
+
+
+//find the number of pairs in the array whose sum to x;
+import java.util.*;
+class Arrays{
+    public static void main(String[] args) {
+        int count=0;
+        Scanner sc=new Scanner(System.in);
+        int[] arr=new int[10];
+        
+        int x=sc.nextInt();
+        for(int i=0;i<10;i++){
             arr[i]=sc.nextInt();
         }
-        int max=0;
-        for(int i=0;i<n;i++){
-            if(arr[i]>max){
-                max=arr[i];
+        for (int i = 0; i < 10; i++) {
+            for(int j=i+1;j<10;j++){
+                if(arr[i]+arr[j]==x){
+                    count++;
+                }
             }
         }
-        int f=max+1;
-        int[] freq=new int[f];
-        for(int i=0;i<n;i++){
-            freq[arr[i]]++;
-        }
-        int c=0;
-        for(int i=0;i<f;i++){
-            if(freq[i]%2!=0){
-                c++;
-            }
-        }
-        System.out.println(c);
-        
+        System.out.println(count);
     }
     }
