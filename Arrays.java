@@ -461,26 +461,51 @@
 //     }  
 
 //prefix sum of an array
+// import java.util.*;
+// class Arrays{
+//     public static void prefix(int[] a){
+//         int[] ans=new int[a.length];
+//         int s=0;
+//         for(int i=0;i<a.length;i++){
+//             s+=a[i];
+//             ans[i]=s;
+//         }
+//         for(int i=0;i<ans.length;i++){
+//             System.out.print(ans[i]+" ");
+//         }
+//     }
+//     public static void main(String[] args) {
+        
+//         Scanner sc=new Scanner(System.in);
+//         int[] arr=new int[10];
+//         for(int i=0;i<10;i++){
+//             arr[i]=sc.nextInt();
+//         }
+//         prefix(arr);
+//         }
+//     }  
+
+//prefix sum in-place approach
 import java.util.*;
 class Arrays{
-    public static void prefix(int[] a){
-        int[] ans=new int[a.length];
-        int s=0;
-        for(int i=0;i<a.length;i++){
-            s+=a[i];
-            ans[i]=s;
+    public static int[] prefix(int[] a){
+       
+        for(int i=1;i<a.length;i++){
+           a[i]=a[i-1]+a[i];
         }
-        for(int i=0;i<ans.length;i++){
-            System.out.print(ans[i]+" ");
-        }
+        return a;
     }
     public static void main(String[] args) {
         
         Scanner sc=new Scanner(System.in);
-        int[] arr=new int[10];
-        for(int i=0;i<10;i++){
+        int n=sc.nextInt();
+        int[] arr=new int[n];
+        for(int i=0;i<n;i++){
             arr[i]=sc.nextInt();
         }
         prefix(arr);
+        for(int x:arr){
+            System.out.print(x+" ");
+        }
         }
     }  
