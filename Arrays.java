@@ -445,7 +445,7 @@ class Arrays{
         int[] ans=new int[10];
         int l=0,r=arr.length-1;
         int i=0;
-        while(l<r){
+        while(l<=r){
             if(Math.abs(arr[l])>Math.abs(arr[r])){
                 ans[i++]=arr[l]*arr[l];
                 l++;
