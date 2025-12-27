@@ -433,8 +433,47 @@
 //     }  
 
 //given an array in non-decreaing order,return the sq of those number in non-decreasing order 
+// import java.util.*;
+// class Arrays{
+//     public static void main(String[] args) {
+        
+//         Scanner sc=new Scanner(System.in);
+//         int[] arr=new int[10];
+//         for(int i=0;i<10;i++){
+//             arr[i]=sc.nextInt();
+//         }
+//         int[] ans=new int[10];
+//         int l=0,r=arr.length-1;
+//         int i=0;
+//         while(l<=r){
+//             if(Math.abs(arr[l])>Math.abs(arr[r])){
+//                 ans[i++]=arr[l]*arr[l];
+//                 l++;
+//             }else{
+//                 ans[i++]=arr[r]*arr[r];
+//                 r--;
+//             }
+//         }
+//         for(int k=ans.length-1;k>=0;k--){
+//             System.out.print(ans[k]+" ");
+//         }
+//         }
+//     }  
+
+//prefix sum of an array
 import java.util.*;
 class Arrays{
+    public static void prefix(int[] a){
+        int[] ans=new int[a.length];
+        int s=0;
+        for(int i=0;i<a.length;i++){
+            s+=a[i];
+            ans[i]=s;
+        }
+        for(int i=0;i<ans.length;i++){
+            System.out.print(ans[i]+" ");
+        }
+    }
     public static void main(String[] args) {
         
         Scanner sc=new Scanner(System.in);
@@ -442,20 +481,6 @@ class Arrays{
         for(int i=0;i<10;i++){
             arr[i]=sc.nextInt();
         }
-        int[] ans=new int[10];
-        int l=0,r=arr.length-1;
-        int i=0;
-        while(l<=r){
-            if(Math.abs(arr[l])>Math.abs(arr[r])){
-                ans[i++]=arr[l]*arr[l];
-                l++;
-            }else{
-                ans[i++]=arr[r]*arr[r];
-                r--;
-            }
-        }
-        for(int k=ans.length-1;k>=0;k--){
-            System.out.print(ans[k]+" ");
-        }
+        prefix(arr);
         }
     }  
