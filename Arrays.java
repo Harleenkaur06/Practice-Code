@@ -529,7 +529,7 @@ class Arrays{
         for(int i=a.length-1;i>=0;i--){
             s+=a[i];
            ans[i]=s;
-           
+            
         }
         return ans;
     }
