@@ -401,6 +401,38 @@
 //     } 
 
 //bring all the even integer in the starting of array 
+// import java.util.*;
+// class Arrays{
+//     public static void main(String[] args) {
+        
+//         Scanner sc=new Scanner(System.in);
+//         int[] arr=new int[10];
+//         for(int i=0;i<10;i++){
+//             arr[i]=sc.nextInt();
+//         }
+//         int i=0,j=arr.length-1;
+//         while(i<j){
+//             if(arr[i]%2!=0 && arr[j]%2==0){
+//                 int t=arr[i];
+//                 arr[i]=arr[j];
+//                 arr[j]=t;
+                
+//             }
+//             if(arr[i]%2==0){
+//                 i++;
+//             }
+//             if(arr[j]%2!=0){
+//                 j--;
+//             }
+            
+//         }
+//         for(int k=0;k<arr.length;k++){
+//             System.out.print(arr[k]+" ");
+//         }
+//         }
+//     }  
+
+//given an array in non-decreaing order,return the sq of those number in non-decreasing order 
 import java.util.*;
 class Arrays{
     public static void main(String[] args) {
@@ -410,24 +442,20 @@ class Arrays{
         for(int i=0;i<10;i++){
             arr[i]=sc.nextInt();
         }
-        int i=0,j=arr.length-1;
-        while(i<j){
-            if(arr[i]%2!=0 && arr[j]%2==0){
-                int t=arr[i];
-                arr[i]=arr[j];
-                arr[j]=t;
-                
+        int[] ans=new int[10];
+        int l=0,r=arr.length-1;
+        int i=0;
+        while(l<r){
+            if(Math.abs(arr[l])>Math.abs(arr[r])){
+                ans[i++]=arr[l]*arr[l];
+                l++;
+            }else{
+                ans[i++]=arr[r]*arr[r];
+                r--;
             }
-            if(arr[i]%2==0){
-                i++;
-            }
-            if(arr[j]%2!=0){
-                j--;
-            }
-            
         }
-        for(int k=0;k<arr.length;k++){
-            System.out.print(arr[k]+" ");
+        for(int k=ans.length-1;k>=0;k--){
+            System.out.print(ans[k]+" ");
         }
         }
     }  
