@@ -512,48 +512,50 @@
 
 //check if a array can be divided in two subarrays of same sum;
 //we can check if sum of prefix is equal to suffix of i+1;
-import java.util.*;
-class Arrays{
-    public static int[] prefix(int[] a){
-        int[] ans=new int[a.length];
-        int s=0;
-        for(int i=0;i<a.length;i++){
-            s+=a[i];
-            ans[i]=s;
-        }
-        return ans;
-    }
-    public static int[] suffix(int[] a){
-        int[] ans=new int[a.length];
-        int s=0;
-        for(int i=a.length-1;i>=0;i--){
-            s+=a[i];
-           ans[i]=s;
+// import java.util.*;
+// class Arrays{
+//     public static int[] prefix(int[] a){
+//         int[] ans=new int[a.length];
+//         int s=0;
+//         for(int i=0;i<a.length;i++){
+//             s+=a[i];
+//             ans[i]=s;
+//         }
+//         return ans;
+//     }
+//     public static int[] suffix(int[] a){
+//         int[] ans=new int[a.length];
+//         int s=0;
+//         for(int i=a.length-1;i>=0;i--){
+//             s+=a[i];
+//            ans[i]=s;
             
-        }
-        return ans;
-    }
-    public static void main(String[] args) {
+//         }
+//         return ans;
+//     }
+//     public static void main(String[] args) {
         
-        Scanner sc=new Scanner(System.in);
-        int n=sc.nextInt();
-        int[] arr=new int[n];
-        for(int i=0;i<n;i++){
-            arr[i]=sc.nextInt();
-        }
-        int[] pref=prefix(arr);
-        int[] suf=suffix(arr);
-        boolean found=false;
-        for(int i=0;i<n-1;i++){
-            if(pref[i]==suf[i+1]){
-                found=true;
-                break;
-            }
-        }
-        if(found){
-            System.out.println("yes");
-        }else{
-            System.out.println("no");
-        }
-        }
-    }
+//         Scanner sc=new Scanner(System.in);
+//         int n=sc.nextInt();
+//         int[] arr=new int[n];
+//         for(int i=0;i<n;i++){
+//             arr[i]=sc.nextInt();
+//         }
+//         int[] pref=prefix(arr);
+//         int[] suf=suffix(arr);
+//         boolean found=false;
+//         for(int i=0;i<n-1;i++){
+//             if(pref[i]==suf[i+1]){
+//                 found=true;
+//                 break;
+//             }
+//         }
+//         if(found){
+//             System.out.println("yes");
+//         }else{
+//             System.out.println("no");
+//         }
+//         }
+//     }
+
+
