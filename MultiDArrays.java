@@ -64,31 +64,57 @@
 
 
 //multiplication
+// import java.util.*;
+// public class MultiDArrays {
+//     public static void multiply(int[][] a,int[][] b,int r1,int c1,int r2,int c2){
+//         if(c1!=r2){
+//             System.out.println("can't multiply");
+//             return;
+//         }
+//         int[][] mul=new int[r1][c2];
+//         for(int i=0;i<r1;i++){
+//             for(int j=0;j<c2;j++){
+//                 for(int k=0;k<r2;k++){
+//                     /*
+//                     mul[i][j]=ith row of a matrix and jth col of a matrix;
+//                      */
+//                     mul[i][j]+=a[i][k]*b[k][j];
+//                 }
+//             }
+//         }
+//         for(int i=0;i<r1;i++){
+//             for(int j=0;j<c2;j++){
+//                 System.out.print(mul[i][j]+"  ");
+//             }
+//             System.out.println();
+//         }
+//     }
+//     public static void main(String[] args) {
+//         Scanner sc=new Scanner(System.in);
+//         int r1=sc.nextInt();
+//         int c1=sc.nextInt();
+//         int[][] arr=new int[r1][c1];
+//         for(int i=0;i<r1;i++){
+//             for(int j=0;j<c1;j++){
+//                 arr[i][j]=sc.nextInt();
+//             }
+//         }
+//         int r2=sc.nextInt();
+//         int c2=sc.nextInt();
+//         int[][] arr2=new int[r2][c2];
+//         for(int i=0;i<r2;i++){
+//             for(int j=0;j<c2;j++){
+//                 arr2[i][j]=sc.nextInt();
+//             }
+//         }
+//         multiply(arr,arr2,r1,c1,r2,c2);
+        
+//     }
+// }
+
+//transpose of a matrix
 import java.util.*;
 public class MultiDArrays {
-    public static void multiply(int[][] a,int[][] b,int r1,int c1,int r2,int c2){
-        if(c1!=r2){
-            System.out.println("can't multiply");
-            return;
-        }
-        int[][] mul=new int[r1][c2];
-        for(int i=0;i<r1;i++){
-            for(int j=0;j<c2;j++){
-                for(int k=0;k<r2;k++){
-                    /*
-                    mul[i][j]=ith row of a matrix and jth col of a matrix;
-                     */
-                    mul[i][j]+=a[i][k]*b[k][j];
-                }
-            }
-        }
-        for(int i=0;i<r1;i++){
-            for(int j=0;j<c2;j++){
-                System.out.print(mul[i][j]+"  ");
-            }
-            System.out.println();
-        }
-    }
     public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
         int r1=sc.nextInt();
@@ -99,15 +125,17 @@ public class MultiDArrays {
                 arr[i][j]=sc.nextInt();
             }
         }
-        int r2=sc.nextInt();
-        int c2=sc.nextInt();
-        int[][] arr2=new int[r2][c2];
-        for(int i=0;i<r2;i++){
-            for(int j=0;j<c2;j++){
-                arr2[i][j]=sc.nextInt();
+        int[][] t=new int[c1][r1];
+        for(int i=0;i<c1;i++){
+            for(int j=0;j<r1;j++){
+                t[i][j]=arr[j][i];
             }
         }
-        multiply(arr,arr2,r1,c1,r2,c2);
-        
+        for(int i=0;i<c1;i++){
+            for(int j=0;j<r1;j++){
+                System.out.print(t[i][j]+" ");
+            }
+            System.out.println();
+        }
     }
 }
