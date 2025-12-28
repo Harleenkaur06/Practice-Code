@@ -113,6 +113,34 @@
 // }
 
 //transpose of a matrix
+// import java.util.*;
+// public class MultiDArrays {
+//     public static void main(String[] args) {
+//         Scanner sc=new Scanner(System.in);
+//         int r1=sc.nextInt();
+//         int c1=sc.nextInt();
+//         int[][] arr=new int[r1][c1];
+//         for(int i=0;i<r1;i++){
+//             for(int j=0;j<c1;j++){
+//                 arr[i][j]=sc.nextInt();
+//             }
+//         }
+//         int[][] t=new int[c1][r1];
+//         for(int i=0;i<c1;i++){
+//             for(int j=0;j<r1;j++){
+//                 t[i][j]=arr[j][i];
+//             }
+//         }
+//         for(int i=0;i<c1;i++){
+//             for(int j=0;j<r1;j++){
+//                 System.out.print(t[i][j]+" ");
+//             }
+//             System.out.println();
+//         }
+//     }
+// }
+
+//in place for square matrix
 import java.util.*;
 public class MultiDArrays {
     public static void main(String[] args) {
@@ -125,15 +153,17 @@ public class MultiDArrays {
                 arr[i][j]=sc.nextInt();
             }
         }
-        int[][] t=new int[c1][r1];
+        
         for(int i=0;i<c1;i++){
-            for(int j=0;j<r1;j++){
-                t[i][j]=arr[j][i];
+            for(int j=i;j<r1;j++){
+                int temp=arr[i][j];
+                arr[i][j]=arr[j][i];
+                arr[j][i]=temp;
             }
         }
         for(int i=0;i<c1;i++){
             for(int j=0;j<r1;j++){
-                System.out.print(t[i][j]+" ");
+                System.out.print(arr[i][j]+" ");
             }
             System.out.println();
         }
