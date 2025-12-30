@@ -172,41 +172,73 @@
 
 //given a sq matrix turn it by 90 degree clockwise
 //find tranpose and then reverse the rows
+// import java.util.*;
+// public class MultiDArrays {
+//     public static void reverse(int[] a){
+//         int i=0,j=a.length-1;
+//         while(i<j){
+//             int t=a[i];
+//             a[i]=a[j];
+//             a[j]=t;
+//             i++;
+//             j--;
+//         }
+//     } 
+//     public static void main(String[] args) {
+//         Scanner sc=new Scanner(System.in);
+//         int n=sc.nextInt();
+//         int[][] arr=new int[n][n];//sq matrix
+//         for(int i=0;i<n;i++){
+//             for(int j=0;j<n;j++){
+//                 arr[i][j]=sc.nextInt();
+//             }
+//         }
+//         for(int i=0;i<n;i++){
+//             for(int j=i;j<n;j++){
+//                 int temp=arr[i][j];
+//                 arr[i][j]=arr[j][i];
+//                 arr[j][i]=temp;
+//             }
+//         }
+//         for(int i=0;i<n;i++){
+//             /*arr[i]represents a whole row */
+//             reverse(arr[i]);
+//         }
+//         for(int i=0;i<n;i++){
+//             for(int j=0;j<n;j++){
+//                 System.out.print(arr[i][j]+" ");
+//             }
+//             System.out.println();
+//         }
+//     }
+// }
+
+//pascals triangle
+//each no. is sum of numbers exactly above it
+//p[i][j]=p[i-1][j]+p[i-1][j-1];
+//every row first and last element is one
+//jagged 2d arrays(different no. of cols in rows)
 import java.util.*;
 public class MultiDArrays {
-    public static void reverse(int[] a){
-        int i=0,j=a.length-1;
-        while(i<j){
-            int t=a[i];
-            a[i]=a[j];
-            a[j]=t;
-            i++;
-            j--;
+    public static int[][] pascal(int n){
+        int[][] arr=new int[n][];//because column is not fix
+        for(int i=0;i<n;i++){
+            arr[i]=new int[i+1];
+            arr[i][0]=arr[i][i]=1;
+            for(int j=1;j<i;j++){
+                arr[i][j]=arr[i-1][j]+arr[i-1][j-1];
+            }
         }
+        return arr;
     } 
     public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
         int n=sc.nextInt();
-        int[][] arr=new int[n][n];//sq matrix
+        int[][] ans=pascal(n);
+        
         for(int i=0;i<n;i++){
-            for(int j=0;j<n;j++){
-                arr[i][j]=sc.nextInt();
-            }
-        }
-        for(int i=0;i<n;i++){
-            for(int j=i;j<n;j++){
-                int temp=arr[i][j];
-                arr[i][j]=arr[j][i];
-                arr[j][i]=temp;
-            }
-        }
-        for(int i=0;i<n;i++){
-            /*arr[i]represents a whole row */
-            reverse(arr[i]);
-        }
-        for(int i=0;i<n;i++){
-            for(int j=0;j<n;j++){
-                System.out.print(arr[i][j]+" ");
+            for(int j=0;j<ans[i].length;j++){
+                System.out.print(ans[i][j]+" ");
             }
             System.out.println();
         }
