@@ -170,34 +170,45 @@
 //     }
 // }
 
-//max sum in a row
+//given a sq matrix turn it by 90 degree clockwise
+//find tranpose and then reverse the rows
 import java.util.*;
-
-public class MaxRowSum {
+public class MultiDArrays {
+    public static void reverse(int[] a){
+        int i=0,j=a.length-1;
+        while(i<j){
+            int t=a[i];
+            a[i]=a[j];
+            a[j]=t;
+            i++;
+            j--;
+        }
+    } 
     public static void main(String[] args) {
-
-        Scanner sc = new Scanner(System.in);
-        int r = sc.nextInt();
-        int c = sc.nextInt();
-        int[][] arr = new int[r][c];
-        for(int i = 0; i < r; i++){
-            for(int j = 0; j < c; j++){
-                arr[i][j] = sc.nextInt();
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int[][] arr=new int[n][n];//sq matrix
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n;j++){
+                arr[i][j]=sc.nextInt();
             }
         }
-        int maxSum = Integer.MIN_VALUE;
-        int rowIndex = -1;
-        for(int i = 0; i < r; i++){
-            int sum = 0;
-            for(int j = 0; j < c; j++){
-                sum += arr[i][j];
-            }
-            if(sum > maxSum){
-                maxSum = sum;
-                rowIndex = i;
+        for(int i=0;i<n;i++){
+            for(int j=i;j<n;j++){
+                int temp=arr[i][j];
+                arr[i][j]=arr[j][i];
+                arr[j][i]=temp;
             }
         }
-        System.out.println("Row with max sum: " + rowIndex);
-        System.out.println("Max sum: " + maxSum);
+        for(int i=0;i<n;i++){
+            /*arr[i]represents a whole row */
+            reverse(arr[i]);
+        }
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n;j++){
+                System.out.print(arr[i][j]+" ");
+            }
+            System.out.println();
+        }
     }
 }
