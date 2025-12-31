@@ -261,27 +261,27 @@ public class MultiDArrays {
         }
         int top=0,bottom=r-1,leftcol=0,rightcol=c-1;
         int totalelements=0;
-        while(totalelements<=(r*c)) { 
+        while(totalelements<(r*c)) { 
             //top row->left to right
-            for(int i=leftcol;i<=rightcol;i++){
+            for(int i=leftcol;i<=rightcol && totalelements<(r*c);i++){
                 System.out.println(arr[top][i]);
                 totalelements++;
             }
             top++;
             //right col-> top to bottom
-            for(int j=top;j<=bottom;j++){
+            for(int j=top;j<=bottom && totalelements<(r*c);j++){
                 System.out.println(arr[j][rightcol]);
                 totalelements++;
             }
             rightcol--;
             //bottom->right to left
-            for(int k=rightcol;k>=leftcol;k--){
+            for(int k=rightcol;k>=leftcol && totalelements<(r*c);k--){
                 System.out.println(arr[bottom][k]);
                 totalelements++;
             }
             bottom--;
             // left->bottom to top
-            for(int l=bottom;l>=top;l--){
+            for(int l=bottom;l>=top&&totalelements<(r*c);l--){
                 System.out.println(arr[l][leftcol]);
                 totalelements++;
             }
