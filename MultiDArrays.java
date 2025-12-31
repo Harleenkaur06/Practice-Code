@@ -247,45 +247,91 @@
 
 //spiral order in matrix
 // top row ,rightmost col,last row, leftmost, againn top,right,last,left
+// import java.util.*;
+// public class MultiDArrays { 
+//     public static void main(String[] args) {
+//         Scanner sc=new Scanner(System.in);
+//         int r=sc.nextInt();
+//         int c=sc.nextInt();
+//         int[][] arr=new int[r][c];
+//         for(int i=0;i<r;i++){
+//             for(int j=0;j<c;j++){
+//                 arr[i][j]=sc.nextInt();
+//             }
+//         }
+//         int top=0,bottom=r-1,leftcol=0,rightcol=c-1;
+//         int totalelements=0;
+//         while(totalelements<(r*c)) { 
+//             //top row->left to right
+//             for(int i=leftcol;i<=rightcol && totalelements<(r*c);i++){
+//                 System.out.println(arr[top][i]);
+//                 totalelements++;
+//             }
+//             top++;
+//             //right col-> top to bottom
+//             for(int j=top;j<=bottom && totalelements<(r*c);j++){
+//                 System.out.println(arr[j][rightcol]);
+//                 totalelements++;
+//             }
+//             rightcol--;
+//             //bottom->right to left
+//             for(int k=rightcol;k>=leftcol && totalelements<(r*c);k--){
+//                 System.out.println(arr[bottom][k]);
+//                 totalelements++;
+//             }
+//             bottom--;
+//             // left->bottom to top
+//             for(int l=bottom;l>=top&&totalelements<(r*c);l--){
+//                 System.out.println(arr[l][leftcol]);
+//                 totalelements++;
+//             }
+//             leftcol++;
+//         }
+//     }
+// }
+
+//given a number n, generate a matrix of n*n with number from 1 to n^2 in spiral order
 import java.util.*;
 public class MultiDArrays { 
     public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
-        int r=sc.nextInt();
-        int c=sc.nextInt();
-        int[][] arr=new int[r][c];
-        for(int i=0;i<r;i++){
-            for(int j=0;j<c;j++){
-                arr[i][j]=sc.nextInt();
-            }
-        }
-        int top=0,bottom=r-1,leftcol=0,rightcol=c-1;
-        int totalelements=0;
-        while(totalelements<(r*c)) { 
-            //top row->left to right
-            for(int i=leftcol;i<=rightcol && totalelements<(r*c);i++){
-                System.out.println(arr[top][i]);
-                totalelements++;
+        int n=sc.nextInt();
+       
+        int[][] arr=new int[n][n];
+        int top=0,bottom=n-1,left=0,right=n-1;
+        int total=0;
+        int t=1;
+        while(total<n*n){
+            for(int i=left;i<=right && total<n*n;i++){
+                arr[top][i]=t;
+                t++;
+                total++;
             }
             top++;
-            //right col-> top to bottom
-            for(int j=top;j<=bottom && totalelements<(r*c);j++){
-                System.out.println(arr[j][rightcol]);
-                totalelements++;
+            for(int i=top;i<=bottom && total<n*n;i++){
+                arr[i][right]=t;
+                t++;
+                total++;
             }
-            rightcol--;
-            //bottom->right to left
-            for(int k=rightcol;k>=leftcol && totalelements<(r*c);k--){
-                System.out.println(arr[bottom][k]);
-                totalelements++;
+            right--;
+            for(int i=right;i>=left && total<n*n;i--){
+                arr[bottom][i]=t;
+                t++;
+                total++;
             }
             bottom--;
-            // left->bottom to top
-            for(int l=bottom;l>=top&&totalelements<(r*c);l--){
-                System.out.println(arr[l][leftcol]);
-                totalelements++;
+            for(int i=bottom;i>=top && total<n*n;i--){
+                arr[i][left]=t;
+                t++;
+                total++;
             }
-            leftcol++;
+            left++;
+        }
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n;j++){
+                System.out.print(arr[i][j]+" ");
+            }
+            System.out.println();
         }
     }
 }
