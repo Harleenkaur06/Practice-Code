@@ -218,29 +218,74 @@
 //p[i][j]=p[i-1][j]+p[i-1][j-1];
 //every row first and last element is one
 //jagged 2d arrays(different no. of cols in rows)
+// import java.util.*;
+// public class MultiDArrays {
+//     public static int[][] pascal(int n){
+//         int[][] arr=new int[n][];//because column is not fix
+//         for(int i=0;i<n;i++){
+//             arr[i]=new int[i+1];
+//             arr[i][0]=arr[i][i]=1;
+//             for(int j=1;j<i;j++){
+//                 arr[i][j]=arr[i-1][j]+arr[i-1][j-1];
+//             }
+//         }
+//         return arr;
+//     } 
+//     public static void main(String[] args) {
+//         Scanner sc=new Scanner(System.in);
+//         int n=sc.nextInt();
+//         int[][] ans=pascal(n);
+        
+//         for(int i=0;i<n;i++){
+//             for(int j=0;j<ans[i].length;j++){
+//                 System.out.print(ans[i][j]+" ");
+//             }
+//             System.out.println();
+//         }
+//     }
+// }
+
+//spiral order in matrix
+// top row ,rightmost col,last row, leftmost, againn top,right,last,left
 import java.util.*;
-public class MultiDArrays {
-    public static int[][] pascal(int n){
-        int[][] arr=new int[n][];//because column is not fix
-        for(int i=0;i<n;i++){
-            arr[i]=new int[i+1];
-            arr[i][0]=arr[i][i]=1;
-            for(int j=1;j<i;j++){
-                arr[i][j]=arr[i-1][j]+arr[i-1][j-1];
-            }
-        }
-        return arr;
-    } 
+public class MultiDArrays { 
     public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
-        int n=sc.nextInt();
-        int[][] ans=pascal(n);
-        
-        for(int i=0;i<n;i++){
-            for(int j=0;j<ans[i].length;j++){
-                System.out.print(ans[i][j]+" ");
+        int r=sc.nextInt();
+        int c=sc.nextInt();
+        int[][] arr=new int[r][c];
+        for(int i=0;i<r;i++){
+            for(int j=0;j<c;j++){
+                arr[i][j]=sc.nextInt();
             }
-            System.out.println();
+        }
+        int top=0,bottom=r-1,leftcol=0,rightcol=c-1;
+        int totalelements=0;
+        while(totalelements<=(r*c)) { 
+            //top row->left to right
+            for(int i=leftcol;i<=rightcol;i++){
+                System.out.println(arr[top][i]);
+                totalelements++;
+            }
+            top++;
+            //right col-> top to bottom
+            for(int j=top;j<=bottom;j++){
+                System.out.println(arr[j][rightcol]);
+                totalelements++;
+            }
+            rightcol--;
+            //bottom->right to left
+            for(int k=rightcol;k>=leftcol;k--){
+                System.out.println(arr[bottom][k]);
+                totalelements++;
+            }
+            bottom--;
+            // left->bottom to top
+            for(int l=bottom;l>=top;l--){
+                System.out.println(arr[l][leftcol]);
+                totalelements++;
+            }
+            leftcol++;
         }
     }
 }
