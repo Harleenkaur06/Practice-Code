@@ -337,28 +337,28 @@
 // }
 
 //given a matrix n*m, and 2 coordinates (l1,r1) and (l2,r2). cal the sum of the area bounded between the coordintes
-import java.util.*;
-public class MultiDArrays { 
-    public static void main(String[] args) {
-        Scanner sc=new Scanner(System.in);
-        int r=sc.nextInt();
-        int c=sc.nextInt();
-        int[][] arr=new int[r][c];//sq matrix
-        for(int i=0;i<r;i++){
-            for(int j=0;j<c;j++){
-                arr[i][j]=sc.nextInt();
-            }
-        }
-        int l1=sc.nextInt();
-        int r1=sc.nextInt();
-        int l2=sc.nextInt();
-        int r2=sc.nextInt();
-        int sum=0;
-        for(int i=l1;i<=l2;i++){
-            for(int j=r1;j<=r2;j++){
-                sum+=arr[i][j];
-            }
-        }
-        System.out.println(sum);
-    }
-}
+// import java.util.*;
+// public class MultiDArrays { 
+//     public static void main(String[] args) {
+//         Scanner sc=new Scanner(System.in);
+//         int r=sc.nextInt();
+//         int c=sc.nextInt();
+//         int[][] arr=new int[r][c];//sq matrix
+//         for(int i=0;i<r;i++){
+//             for(int j=0;j<c;j++){
+//                 arr[i][j]=sc.nextInt();
+//             }
+//         }
+//         int l1=sc.nextInt();
+//         int r1=sc.nextInt();
+//         int l2=sc.nextInt();
+//         int r2=sc.nextInt();
+//         int sum=0;
+//         for(int i=l1;i<=l2;i++){
+//             for(int j=r1;j<=r2;j++){
+//                 sum+=arr[i][j];
+//             }
+//         }
+//         System.out.println(sum);
+//     }
+// }
