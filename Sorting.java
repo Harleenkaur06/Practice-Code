@@ -132,29 +132,59 @@
 // }
 
 //given an array of names of fruits you are supposed to sort it in lexicographical order
+// import java.util.*;
+// public class Sorting {
+//     public static void main(String[] args) {
+//         Scanner sc=new Scanner(System.in);
+//         int n=sc.nextInt();
+//         String[] arr=new String[n];
+//         for(int i=0;i<n;i++){
+//             arr[i]=sc.next();
+//         }
+//         for(int i=0;i<n;i++){
+//             int min=i;
+//             for(int j=i;j<n;j++){
+//                 if(arr[j].compareTo(arr[min])<0){
+//                     min=j;
+//                 }
+                
+//             }
+//             String t=arr[i];
+//                 arr[i]=arr[min];
+//                 arr[min]=t;
+//         }
+//         for(int i=0;i<n;i++){
+//             System.out.print(arr[i]+" ");
+//         }
+//     }
+// }
+
+//Binary search
+//finding target using binary search
 import java.util.*;
-public class Sorting {
+class Sorting{
     public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
         int n=sc.nextInt();
-        String[] arr=new String[n];
+        int[] arr=new int[n];
         for(int i=0;i<n;i++){
-            arr[i]=sc.next();
+            arr[i]=sc.nextInt();
         }
-        for(int i=0;i<n;i++){
-            int min=i;
-            for(int j=i;j<n;j++){
-                if(arr[j].compareTo(arr[min])<0){
-                    min=j;
-                }
-                
+        int st=0,end=n-1;
+       
+        int found=-1;
+        int target=sc.nextInt();
+        while(st<=end){
+             int mid=(st+end)/2;
+            if(target==arr[mid]){
+                found=mid;
+                break;
+            }else if(arr[mid]<target){
+                st=mid+1;
+            }else{
+                end=mid-1;
             }
-            String t=arr[i];
-                arr[i]=arr[min];
-                arr[min]=t;
         }
-        for(int i=0;i<n;i++){
-            System.out.print(arr[i]+" ");
-        }
+        System.out.println("Index of the target in the array "+found);
     }
 }
