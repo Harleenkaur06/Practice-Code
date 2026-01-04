@@ -654,15 +654,47 @@ import java.util.Scanner;
 // }
 
 //sum of digit
+// class Arrays{
+//     public static void main(String[] args) {
+//         Scanner sc=new Scanner(System.in);
+//         int n=sc.nextInt();
+//         int s=0;
+//         while(n!=0){
+//         int ld=n%10;
+//         s+=ld;
+//         n=n/10;}
+//         System.out.println(s);
+//     }
+// }
+
+//put os before 1
 class Arrays{
     public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
         int n=sc.nextInt();
-        int s=0;
-        while(n!=0){
-        int ld=n%10;
-        s+=ld;
-        n=n/10;}
-        System.out.println(s);
+        int[] arr=new int[n];
+        for(int i=0;i<n;i++){
+            arr[i]=sc.nextInt();
+        }
+        int i=0,j=arr.length-1;
+        while(i<j){
+            if(arr[i]==0){
+                i++;
+            }else if(arr[j]==1){
+                j--;
+            }
+            else{
+                int t=arr[i];
+                arr[i]=arr[j];
+                arr[j]=t;
+                i++;
+                j--;
+            }
+            
+        }
+        for(int k=0;k<n;k++){
+            System.out.print(arr[k]+" ");
+        }
     }
 }
+
