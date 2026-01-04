@@ -700,6 +700,32 @@ import java.util.Scanner;
 
 //family photograph
 //reverse a group of k no.
+// class Arrays{
+//     public static void main(String[] args) {
+//         Scanner sc=new Scanner(System.in);
+//         int n=sc.nextInt();
+//         int[] arr=new int[n];
+//         for(int i=0;i<n;i++){
+//             arr[i]=sc.nextInt();
+//         }
+//         int k=sc.nextInt();
+//         for(int i=0;i<n;i+=k){
+//             int left=i,right=Math.min(i+(k-1),n-1);
+//             while(left<right){
+//                 int t=arr[left];
+//                 arr[left]=arr[right];
+//                 arr[right]=t;
+//                 left++;
+//                 right--;
+//             }
+//         }
+//         for(int i=0;i<n;i++){
+//             System.out.print(arr[i]+" ");
+//         }
+//     }
+// }
+
+//kth challenge of last occurence
 class Arrays{
     public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
@@ -709,18 +735,29 @@ class Arrays{
             arr[i]=sc.nextInt();
         }
         int k=sc.nextInt();
-        for(int i=0;i<n;i+=k){
-            int left=i,right=Math.min(i+(k-1),n-1);
-            while(left<right){
-                int t=arr[left];
-                arr[left]=arr[right];
-                arr[right]=t;
-                left++;
-                right--;
-            }
+       
+       int sum=0;
+       while(k!=0){
+        int t=sc.nextInt();
+        int left=0,right=n-1;
+        int pos=-1;
+       while(left<=right){
+        int mid=left+(right-left)/2;
+        if(t==arr[mid]){
+            pos=mid;
+            left=mid+1;
+            
+        }else if(t<arr[mid]){
+            left=mid+1;
+        }else{
+            right=mid-1;
         }
-        for(int i=0;i<n;i++){
-            System.out.print(arr[i]+" ");
-        }
+       }
+       if(pos!=-1){
+        sum+=pos;
+       }
+        k--;
+}
+    System.out.print(sum);
     }
 }
