@@ -608,9 +608,35 @@
 
 //heat wave
 //find the maximum temp;
-import java.util.Scanner;
+// import java.util.Scanner;
 
+// class Arrays{
+//     public static void main(String[] args) {
+//         Scanner sc=new Scanner(System.in);
+//         int n=sc.nextInt();
+//         int[] arr=new int[n];
+//         for(int i=0;i<n;i++){
+//             arr[i]=sc.nextInt();
+//         }
+//         int max=arr[0];
+//         for(int i=1;i<n;i++){
+//            if(max<arr[i]){
+//             max=arr[i];
+//            }
+//         }
+//         System.out.println(max);
+//     }
+// }
+
+//kthe largest
+import java.util.*;
 class Arrays{
+    public static int kthlargest(int[] arr,int k){
+       java.util.Arrays.sort(arr);
+       int no=arr[arr.length-k];
+       
+       return no;
+    }
     public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
         int n=sc.nextInt();
@@ -618,12 +644,8 @@ class Arrays{
         for(int i=0;i<n;i++){
             arr[i]=sc.nextInt();
         }
-        int max=arr[0];
-        for(int i=1;i<n;i++){
-           if(max<arr[i]){
-            max=arr[i];
-           }
-        }
-        System.out.println(max);
+        int k=sc.nextInt();
+        int large=kthlargest(arr,k);
+        System.out.println(large);
     }
 }
