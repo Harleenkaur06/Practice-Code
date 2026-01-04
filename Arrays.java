@@ -582,7 +582,34 @@
 
 //moving all zeros to front
 //bubble sort
+// import java.util.Scanner;
+// class Arrays{
+//     public static void main(String[] args) {
+//         Scanner sc=new Scanner(System.in);
+//         int n=sc.nextInt();
+//         int[] arr=new int[n];
+//         for(int i=0;i<n;i++){
+//             arr[i]=sc.nextInt();
+//         }
+//         for(int i=0;i<n-1;i++){
+//             for(int j=0;j<n-i-1;j++){
+//                 if(arr[j]!=0 && arr[j+1]==0){
+//                     int t=arr[j];
+//                     arr[j]=arr[j+1];
+//                     arr[j+1]=t;
+//                 }
+//             }
+//         }
+//         for(int i=0;i<n;i++){
+//             System.out.print(arr[i]+" ");
+//         }
+//     }
+// }
+
+//heat wave
+//find the maximum temp;
 import java.util.Scanner;
+
 class Arrays{
     public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
@@ -591,17 +618,12 @@ class Arrays{
         for(int i=0;i<n;i++){
             arr[i]=sc.nextInt();
         }
-        for(int i=0;i<n-1;i++){
-            for(int j=0;j<n-i-1;j++){
-                if(arr[j]!=0 && arr[j+1]==0){
-                    int t=arr[j];
-                    arr[j]=arr[j+1];
-                    arr[j+1]=t;
-                }
-            }
+        int max=arr[0];
+        for(int i=1;i<n;i++){
+           if(max<arr[i]){
+            max=arr[i];
+           }
         }
-        for(int i=0;i<n;i++){
-            System.out.print(arr[i]+" ");
-        }
+        System.out.println(max);
     }
 }
