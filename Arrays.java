@@ -1,3 +1,6 @@
+
+import java.util.Scanner;
+
 // import java.util.*;
 // public class Arrays {
 //     public static void main(String[] args) {
@@ -629,23 +632,37 @@
 // }
 
 //kthe largest
-import java.util.*;
-class Arrays{
-    public static int kthlargest(int[] arr,int k){
-       java.util.Arrays.sort(arr);
-       int no=arr[arr.length-k];
+// import java.util.*;
+// class Arrays{
+//     public static int kthlargest(int[] arr,int k){
+//        java.util.Arrays.sort(arr);
+//        int no=arr[arr.length-k];
        
-       return no;
-    }
+//        return no;
+//     }
+//     public static void main(String[] args) {
+//         Scanner sc=new Scanner(System.in);
+//         int n=sc.nextInt();
+//         int[] arr=new int[n];
+//         for(int i=0;i<n;i++){
+//             arr[i]=sc.nextInt();
+//         }
+//         int k=sc.nextInt();
+//         int large=kthlargest(arr,k);
+//         System.out.println(large);
+//     }
+// }
+
+//sum of digit
+class Arrays{
     public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
         int n=sc.nextInt();
-        int[] arr=new int[n];
-        for(int i=0;i<n;i++){
-            arr[i]=sc.nextInt();
-        }
-        int k=sc.nextInt();
-        int large=kthlargest(arr,k);
-        System.out.println(large);
+        int s=0;
+        while(n!=0){
+        int ld=n%10;
+        s+=ld;
+        n=n/10;}
+        System.out.println(s);
     }
 }
