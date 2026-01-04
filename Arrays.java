@@ -559,3 +559,23 @@
 //     }
 
 
+//search time ques
+//You are given a sequence of positions on a shelf. Starting from the first position, calculate the total distance moved when visiting each next position.
+
+import java.util.Scanner;
+
+class Arrays{
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int[] arr=new int[n];
+        for(int i=0;i<n;i++){
+            arr[i]=sc.nextInt();
+        }
+        int total=0;
+        for(int i=1;i<n;i++){
+            total+=Math.abs(arr[i]-arr[i-1]);
+        }
+        System.out.println(total);
+    }
+}
