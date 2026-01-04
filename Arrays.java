@@ -668,6 +668,38 @@ import java.util.Scanner;
 // }
 
 //put os before 1
+// class Arrays{
+//     public static void main(String[] args) {
+//         Scanner sc=new Scanner(System.in);
+//         int n=sc.nextInt();
+//         int[] arr=new int[n];
+//         for(int i=0;i<n;i++){
+//             arr[i]=sc.nextInt();
+//         }
+//         int i=0,j=arr.length-1;
+//         while(i<j){
+//             if(arr[i]==0){
+//                 i++;
+//             }else if(arr[j]==1){
+//                 j--;
+//             }
+//             else{
+//                 int t=arr[i];
+//                 arr[i]=arr[j];
+//                 arr[j]=t;
+//                 i++;
+//                 j--;
+//             }
+            
+//         }
+//         for(int k=0;k<n;k++){
+//             System.out.print(arr[k]+" ");
+//         }
+//     }
+// }
+
+//family photograph
+//reverse a group of k no.
 class Arrays{
     public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
@@ -676,25 +708,19 @@ class Arrays{
         for(int i=0;i<n;i++){
             arr[i]=sc.nextInt();
         }
-        int i=0,j=arr.length-1;
-        while(i<j){
-            if(arr[i]==0){
-                i++;
-            }else if(arr[j]==1){
-                j--;
+        int k=sc.nextInt();
+        for(int i=0;i<n;i+=k){
+            int left=i,right=Math.min(i+(k-1),n-1);
+            while(left<right){
+                int t=arr[left];
+                arr[left]=arr[right];
+                arr[right]=t;
+                left++;
+                right--;
             }
-            else{
-                int t=arr[i];
-                arr[i]=arr[j];
-                arr[j]=t;
-                i++;
-                j--;
-            }
-            
         }
-        for(int k=0;k<n;k++){
-            System.out.print(arr[k]+" ");
+        for(int i=0;i<n;i++){
+            System.out.print(arr[i]+" ");
         }
     }
 }
-
