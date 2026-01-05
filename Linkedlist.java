@@ -25,6 +25,36 @@
 // }
 
 //displaying a linked list
+// public class Linkedlist {
+//     public static class Node{
+//         int data;
+//         Node next;
+//         public Node(int data){
+//             this.data=data;
+//         }
+//     }
+//     public static void display(Node head){
+//         while(head!=null){
+//             System.out.print(head.data+" ");
+//             head=head.next;
+//         }
+//     }
+//     public static void main(String[] args) {
+//         Node n1=new Node(5);
+//         Node n2=new Node(3);
+//         Node n3=new Node(1);
+//         Node n4=new Node(4);
+//         Node n5=new Node(15);
+//         n1.next=n2;
+//         n2.next=n3;
+//         n3.next=n4;
+//         n4.next=n5;
+//         display(n1);
+        
+//     }
+// }
+
+//displaying a linked list recursively
 public class Linkedlist {
     public static class Node{
         int data;
@@ -34,10 +64,11 @@ public class Linkedlist {
         }
     }
     public static void display(Node head){
-        while(head!=null){
-            System.out.print(head.data+" ");
-            head=head.next;
-        }
+        
+        if(head==null) return;
+        System.out.println(head.data);
+        display(head.next);
+        
     }
     public static void main(String[] args) {
         Node n1=new Node(5);
@@ -53,4 +84,3 @@ public class Linkedlist {
         
     }
 }
-
