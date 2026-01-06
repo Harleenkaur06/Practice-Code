@@ -589,6 +589,77 @@
 // }
 
 //finding the nth node from the end in one traversal
+// public class Linkedlist {
+//     public static class Node{
+//         int data;
+//         Node next;
+//         public Node(int data){
+//             this.data=data;
+//         }
+//     }
+//     public static class LinkedList{
+//         Node head=null;
+//         Node tail=null;
+//         int size=0;
+//         void addatend(int data){
+//             Node t=new Node(data);
+//             if(head==null){
+//                 head=tail=t;
+//             }
+//             tail.next=t;
+//             tail=t;
+//         }
+    
+//     void display(){
+//         Node t=head;
+//        while(t!=null){
+//         System.out.println(t.data);
+//         t=t.next;
+//        }   
+//     }
+//     void insertatstart(int data){
+//         Node temp=new Node(data);
+//         if(head==null){
+//             addatend(data);;
+//         }
+//         temp.next=head;
+//         head=temp;
+//     }
+//     int size(){
+//         Node t=head;
+        
+//         while(t!=null){
+//             size++;
+//             t=t.next;
+//         }
+//         return size;
+//     }
+//     Node findingatend(int idx){
+//         Node slow=head;
+//         Node fast=head;
+//         for(int i=1;i<=idx;i++){
+//             fast=fast.next;
+//         }
+//         while(fast!=null){
+//         slow=slow.next;
+//         fast=fast.next;}
+//         return slow;
+//     }
+// }
+//     public static void main(String[] args) {
+//         LinkedList ll=new LinkedList();
+//         ll.addatend(5);
+//         ll.addatend(3);
+//         ll.addatend(1);
+//         ll.addatend(15);
+//         ll.addatend(50);
+//         Node t=ll.findingatend(3);
+//         System.out.println(t.data);
+
+//     }
+// }
+
+//removing nth node from the ed of linked list
 public class Linkedlist {
     public static class Node{
         int data;
@@ -634,16 +705,17 @@ public class Linkedlist {
         }
         return size;
     }
-    Node findingatend(int idx){
+    void remove(int idx){
         Node slow=head;
         Node fast=head;
         for(int i=1;i<=idx;i++){
             fast=fast.next;
         }
-        while(fast!=null){
-        slow=slow.next;
-        fast=fast.next;}
-        return slow;
+        while(fast.next!=null){
+            slow=slow.next;
+            fast=fast.next;
+        }
+        slow.next=slow.next.next;
     }
 }
     public static void main(String[] args) {
@@ -653,8 +725,9 @@ public class Linkedlist {
         ll.addatend(1);
         ll.addatend(15);
         ll.addatend(50);
-        Node t=ll.findingatend(3);
-        System.out.println(t.data);
+        ll.display();
+        ll.remove(3);
+        ll.display();
 
     }
 }
