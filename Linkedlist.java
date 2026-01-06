@@ -414,10 +414,15 @@ public class Linkedlist {
     }
     void delete(int idx){
         Node t=head;
+        if(idx==0){
+            head=head.next;
+        }
         for(int i=1;i<=idx-1;i++){
             t=t.next;
         }
         t.next=t.next.next;
+        tail=t;
+        size--;
     }
 }
     public static void main(String[] args) {
