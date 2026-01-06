@@ -521,6 +521,74 @@
 // }
 
 //finding the nth node from the end
+// public class Linkedlist {
+//     public static class Node{
+//         int data;
+//         Node next;
+//         public Node(int data){
+//             this.data=data;
+//         }
+//     }
+//     public static class LinkedList{
+//         Node head=null;
+//         Node tail=null;
+//         int size=0;
+//         void addatend(int data){
+//             Node t=new Node(data);
+//             if(head==null){
+//                 head=tail=t;
+//             }
+//             tail.next=t;
+//             tail=t;
+//         }
+    
+//     void display(){
+//         Node t=head;
+//        while(t!=null){
+//         System.out.println(t.data);
+//         t=t.next;
+//        }   
+//     }
+//     void insertatstart(int data){
+//         Node temp=new Node(data);
+//         if(head==null){
+//             addatend(data);;
+//         }
+//         temp.next=head;
+//         head=temp;
+//     }
+//     int size(){
+//         Node t=head;
+        
+//         while(t!=null){
+//             size++;
+//             t=t.next;
+//         }
+//         return size;
+//     }
+//     Node findingatend(int idx){
+//         Node t=head;
+//         int m=size()-idx+1;
+//         for(int i=1;i<=m;i++){
+//             t=t.next;
+//         }
+//         return t;
+//     }
+// }
+//     public static void main(String[] args) {
+//         LinkedList ll=new LinkedList();
+//         ll.addatend(5);
+//         ll.addatend(3);
+//         ll.addatend(1);
+//         ll.addatend(15);
+//         ll.addatend(50);
+//         Node t=ll.findingatend(3);
+//         System.out.println(t.data);
+
+//     }
+// }
+
+//finding the nth node from the end in one traversal
 public class Linkedlist {
     public static class Node{
         int data;
@@ -567,12 +635,15 @@ public class Linkedlist {
         return size;
     }
     Node findingatend(int idx){
-        Node t=head;
-        int m=size()-idx+1;
-        for(int i=1;i<=m;i++){
-            t=t.next;
+        Node slow=head;
+        Node fast=head;
+        for(int i=1;i<=idx;i++){
+            fast=fast.next;
         }
-        return t;
+        while(fast!=null){
+        slow=slow.next;
+        fast=fast.next;}
+        return slow;
     }
 }
     public static void main(String[] args) {
