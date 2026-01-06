@@ -705,17 +705,22 @@ public class Linkedlist {
         }
         return size;
     }
-    void remove(int idx){
+    Node remove(int idx){
         Node slow=head;
         Node fast=head;
         for(int i=1;i<=idx;i++){
             fast=fast.next;
+        }
+        if(fast==null){
+            head=head.next;
+            return head;
         }
         while(fast.next!=null){
             slow=slow.next;
             fast=fast.next;
         }
         slow.next=slow.next.next;
+        return head;
     }
 }
     public static void main(String[] args) {
@@ -726,7 +731,7 @@ public class Linkedlist {
         ll.addatend(15);
         ll.addatend(50);
         ll.display();
-        ll.remove(3);
+        ll.remove(5);
         ll.display();
 
     }
