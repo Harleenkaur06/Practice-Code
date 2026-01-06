@@ -738,6 +738,103 @@
 // }
 
 //intersection
+// public class Linkedlist {
+//     public static class Node{
+//         int data;
+//         Node next;
+//         public Node(int data){
+//             this.data=data;
+//         }
+//     }
+//     public static class LinkedList{
+//         Node head=null;
+//         Node tail=null;
+//         int size=0;
+//         void addatend(int data){
+//             Node t=new Node(data);
+//             if(head==null){
+//                 head=tail=t;
+//             }
+//             tail.next=t;
+//             tail=t;
+//         }
+    
+//     void display(){
+//         Node t=head;
+//        while(t!=null){
+//         System.out.println(t.data);
+//         t=t.next;
+//        }   
+//     }
+//     void insertatstart(int data){
+//         Node temp=new Node(data);
+//         if(head==null){
+//             addatend(data);;
+//         }
+//         temp.next=head;
+//         head=temp;
+//     }
+//     int size(){
+//         Node t=head;
+        
+//         while(t!=null){
+//             size++;
+//             t=t.next;
+//         }
+//         return size;
+//     }
+//     Node findingatend(int idx){
+//         Node t=head;
+//         int m=size()-idx+1;
+//         for(int i=1;i<=m;i++){
+//             t=t.next;
+//         }
+//         return t;
+//     }
+// }
+//             static Node intersection(Node a,Node b,int sa,int sb){
+//                 Node ta=a;
+//                 Node tb=b;
+//                 if(sa>sb){
+//                     int step=sa-sb;
+//                     for(int i=1;i<=step;i++){
+//                         ta=ta.next;
+//                     }
+//                 }else{
+//                     int step=sb-sa;
+//                     for(int i=1;i<=step;i++){
+//                         tb=tb.next;
+//                     }
+//                 }
+//                 while(ta.data!=tb.data){
+//                     ta=ta.next;
+//                     tb=tb.next;
+//                 }
+//                 return ta;
+//             }
+//     public static void main(String[] args) {
+//         LinkedList ll=new LinkedList();
+//         LinkedList l2=new LinkedList();
+//         ll.addatend(5);
+//         ll.addatend(3);
+//         ll.addatend(1);
+//         ll.addatend(15);
+//         ll.addatend(50);
+//         l2.addatend(100);
+//         l2.addatend(101);
+//         l2.addatend(102);
+//         l2.addatend(1);
+//         l2.addatend(1001);
+//         l2.addatend(1000);
+//         int sa=ll.size();
+//         int sb=l2.size();
+//         Node t=intersection(ll.head,l2.head,sa,sb);
+//         System.out.println(t.data);
+//     }
+// }
+
+
+//finding middle element of linked list
 public class Linkedlist {
     public static class Node{
         int data;
@@ -783,35 +880,17 @@ public class Linkedlist {
         }
         return size;
     }
-    Node findingatend(int idx){
-        Node t=head;
-        int m=size()-idx+1;
-        for(int i=1;i<=m;i++){
-            t=t.next;
+    Node middle(Node head){
+        Node slow=head;
+        Node fast=head;
+        while(fast!=null && fast.next!=null){
+            slow=slow.next;
+            fast=fast.next.next;
         }
-        return t;
+        return slow;
     }
 }
-            static Node intersection(Node a,Node b,int sa,int sb){
-                Node ta=a;
-                Node tb=b;
-                if(sa>sb){
-                    int step=sa-sb;
-                    for(int i=1;i<=step;i++){
-                        ta=ta.next;
-                    }
-                }else{
-                    int step=sb-sa;
-                    for(int i=1;i<=step;i++){
-                        tb=tb.next;
-                    }
-                }
-                while(ta.data!=tb.data){
-                    ta=ta.next;
-                    tb=tb.next;
-                }
-                return ta;
-            }
+
     public static void main(String[] args) {
         LinkedList ll=new LinkedList();
         LinkedList l2=new LinkedList();
@@ -820,15 +899,7 @@ public class Linkedlist {
         ll.addatend(1);
         ll.addatend(15);
         ll.addatend(50);
-        l2.addatend(100);
-        l2.addatend(101);
-        l2.addatend(102);
-        l2.addatend(1);
-        l2.addatend(1001);
-        l2.addatend(1000);
-        int sa=ll.size();
-        int sb=l2.size();
-        Node t=intersection(ll.head,l2.head,sa,sb);
+        Node t=ll.middle(ll.head);
         System.out.println(t.data);
     }
 }
