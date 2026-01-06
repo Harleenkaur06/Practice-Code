@@ -212,6 +212,89 @@
 // }
 
 //making insert at any index method
+// public class Linkedlist {
+//     public static class Node{
+//         int data;
+//         Node next;
+//         public Node(int data){
+//             this.data=data;
+//         }
+//     }
+//     public static class LinkedList{
+//         Node head=null;
+//         Node tail=null;
+//         int size=0;
+//         void addatend(int data){
+//             Node t=new Node(data);
+//             if(head==null){
+//                 head=tail=t;
+//             }
+//             tail.next=t;
+//             tail=t;
+//         }
+    
+//     void display(){
+//         Node t=head;
+//        while(t!=null){
+//         System.out.println(t.data);
+//         t=t.next;
+//        }   
+//     }
+//     void insertatstart(int data){
+//         Node temp=new Node(data);
+//         if(head==null){
+//             addatend(data);;
+//         }
+//         temp.next=head;
+//         head=temp;
+//     }
+//     int size(){
+//         Node t=head;
+        
+//         while(t!=null){
+//             size++;
+//             t=t.next;
+//         }
+//         return size;
+//     }
+//     void insert(int i,int data){
+//         if(i==size()){
+//             addatend(data);
+//             return;
+//         }
+//         if(i==0){
+//             insertatstart(data);
+//             return;
+//         }
+//         Node temp=head;
+//         Node t=new Node(data);
+//         for(int j=1;i<j;j++){
+//             temp=temp.next;
+//         }
+//         t.next=temp.next;
+//         temp.next=t;
+
+//     }
+// }
+//     public static void main(String[] args) {
+//         LinkedList ll=new LinkedList();
+//         ll.addatend(5);
+//         ll.addatend(3);
+//         ll.addatend(1);
+//         ll.addatend(15);
+//         ll.addatend(50);
+//         //ll.display();
+//         ll.insertatstart(100);
+//         ll.insertatstart(101);
+//         ll.insertatstart(102);
+//         ll.insertatstart(103);
+//         //ll.display();
+//         ll.insert(2, 20);
+//         ll.display();
+//     }
+// }
+
+//getelement
 public class Linkedlist {
     public static class Node{
         int data;
@@ -257,23 +340,12 @@ public class Linkedlist {
         }
         return size;
     }
-    void insert(int i,int data){
-        if(i==size()){
-            addatend(data);
-            return;
+    void getelement(int i){
+        Node t=head;
+        for(int j=1;j<=i;j++){
+            t=t.next;
         }
-        if(i==0){
-            insertatstart(data);
-            return;
-        }
-        Node temp=head;
-        Node t=new Node(data);
-        for(int j=1;i<j;j++){
-            temp=temp.next;
-        }
-        t.next=temp.next;
-        temp.next=t;
-
+        System.out.println(t.data);
     }
 }
     public static void main(String[] args) {
@@ -288,8 +360,7 @@ public class Linkedlist {
         ll.insertatstart(101);
         ll.insertatstart(102);
         ll.insertatstart(103);
-        //ll.display();
-        ll.insert(2, 20);
         ll.display();
+        ll.getelement(2) ;
     }
 }
