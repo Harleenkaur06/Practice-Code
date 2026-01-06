@@ -86,6 +86,37 @@
 // }
 
 //displaying linked list in reverse order using recursion
+// public class Linkedlist {
+//     public static class Node{
+//         int data;
+//         Node next;
+//         public Node(int data){
+//             this.data=data;
+//         }
+//     }
+//     public static void display(Node head){
+        
+//         if(head==null) return;
+        
+//         display(head.next);
+//         System.out.println(head.data);
+        
+//     }
+//     public static void main(String[] args) {
+//         Node n1=new Node(5);
+//         Node n2=new Node(3);
+//         Node n3=new Node(1);
+//         Node n4=new Node(4);
+//         Node n5=new Node(15);
+//         n1.next=n2;
+//         n2.next=n3;
+//         n3.next=n4;
+//         n4.next=n5;
+//         display(n1);
+        
+//     }
+// }
+
 public class Linkedlist {
     public static class Node{
         int data;
@@ -94,25 +125,33 @@ public class Linkedlist {
             this.data=data;
         }
     }
-    public static void display(Node head){
+    public static class LinkedList{
+        Node head=null;
+        Node tail=null;
+        void addatend(int data){
+            Node t=new Node(data);
+            if(head==null){
+                head=tail=t;
+            }
+            tail.next=t;
+            tail=t;
+        }
+    
+    void display(){
+        Node t=head;
+       while(t!=null){
+        System.out.println(t.data);
+        t=t.next;
+       }
         
-        if(head==null) return;
-        
-        display(head.next);
-        System.out.println(head.data);
-        
-    }
+    }}
     public static void main(String[] args) {
-        Node n1=new Node(5);
-        Node n2=new Node(3);
-        Node n3=new Node(1);
-        Node n4=new Node(4);
-        Node n5=new Node(15);
-        n1.next=n2;
-        n2.next=n3;
-        n3.next=n4;
-        n4.next=n5;
-        display(n1);
-        
+        LinkedList ll=new LinkedList();
+        ll.addatend(5);
+        ll.addatend(3);
+        ll.addatend(1);
+        ll.addatend(15);
+        ll.addatend(50);
+        ll.display();
     }
 }
