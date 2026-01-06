@@ -367,6 +367,85 @@
 
 
 //delete 
+// public class Linkedlist {
+//     public static class Node{
+//         int data;
+//         Node next;
+//         public Node(int data){
+//             this.data=data;
+//         }
+//     }
+//     public static class LinkedList{
+//         Node head=null;
+//         Node tail=null;
+//         int size=0;
+//         void addatend(int data){
+//             Node t=new Node(data);
+//             if(head==null){
+//                 head=tail=t;
+//             }
+//             tail.next=t;
+//             tail=t;
+//         }
+    
+//     void display(){
+//         Node t=head;
+//        while(t!=null){
+//         System.out.println(t.data);
+//         t=t.next;
+//        }   
+//     }
+//     void insertatstart(int data){
+//         Node temp=new Node(data);
+//         if(head==null){
+//             addatend(data);;
+//         }
+//         temp.next=head;
+//         head=temp;
+//     }
+//     int size(){
+//         Node t=head;
+        
+//         while(t!=null){
+//             size++;
+//             t=t.next;
+//         }
+//         return size;
+//     }
+//     void delete(int idx){
+//         Node t=head;
+//         if(idx==0){
+//             head=head.next;
+//         }
+//         for(int i=1;i<=idx-1;i++){
+//             t=t.next;
+//         }
+//         t.next=t.next.next;
+//         tail=t;
+//         size--;
+//     }
+// }
+//     public static void main(String[] args) {
+//         LinkedList ll=new LinkedList();
+//         ll.addatend(5);
+//         ll.addatend(3);
+//         ll.addatend(1);
+//         ll.addatend(15);
+//         ll.addatend(50);
+//         //ll.display();
+//         ll.insertatstart(100);
+//         ll.insertatstart(101);
+//         ll.insertatstart(102);
+//         ll.insertatstart(103);
+//         ll.delete(2) ;
+//         ll.display();
+
+//     }
+// }
+
+
+//practice ques
+//deleting a node given the node itself as parameter
 public class Linkedlist {
     public static class Node{
         int data;
@@ -424,6 +503,10 @@ public class Linkedlist {
         tail=t;
         size--;
     }
+    void delete(Node val){
+        val.data=val.next.data;
+        val.next=val.next.next;
+    }
 }
     public static void main(String[] args) {
         LinkedList ll=new LinkedList();
@@ -432,13 +515,7 @@ public class Linkedlist {
         ll.addatend(1);
         ll.addatend(15);
         ll.addatend(50);
-        //ll.display();
-        ll.insertatstart(100);
-        ll.insertatstart(101);
-        ll.insertatstart(102);
-        ll.insertatstart(103);
-        ll.delete(2) ;
-        ll.display();
+        
 
     }
 }
