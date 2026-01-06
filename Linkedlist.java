@@ -117,6 +117,48 @@
 //     }
 // }
 
+//making linked list class and addatend function
+// public class Linkedlist {
+//     public static class Node{
+//         int data;
+//         Node next;
+//         public Node(int data){
+//             this.data=data;
+//         }
+//     }
+//     public static class LinkedList{
+//         Node head=null;
+//         Node tail=null;
+//         void addatend(int data){
+//             Node t=new Node(data);
+//             if(head==null){
+//                 head=tail=t;
+//             }
+//             tail.next=t;
+//             tail=t;
+//         }
+    
+//     void display(){
+//         Node t=head;
+//        while(t!=null){
+//         System.out.println(t.data);
+//         t=t.next;
+//        }
+        
+//     }}
+//     public static void main(String[] args) {
+//         LinkedList ll=new LinkedList();
+//         ll.addatend(5);
+//         ll.addatend(3);
+//         ll.addatend(1);
+//         ll.addatend(15);
+//         ll.addatend(50);
+//         ll.display();
+
+//     }
+// }
+
+//
 public class Linkedlist {
     public static class Node{
         int data;
@@ -142,9 +184,17 @@ public class Linkedlist {
        while(t!=null){
         System.out.println(t.data);
         t=t.next;
-       }
-        
-    }}
+       }   
+    }
+    void insertatstart(int data){
+        Node temp=new Node(data);
+        if(head==null){
+            head=tail=temp;
+        }
+        temp.next=head;
+        head=temp;
+    }
+}
     public static void main(String[] args) {
         LinkedList ll=new LinkedList();
         ll.addatend(5);
@@ -152,6 +202,11 @@ public class Linkedlist {
         ll.addatend(1);
         ll.addatend(15);
         ll.addatend(50);
+        ll.display();
+        ll.insertatstart(100);
+        ll.insertatstart(101);
+        ll.insertatstart(102);
+        ll.insertatstart(103);
         ll.display();
     }
 }
