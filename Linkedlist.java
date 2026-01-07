@@ -1130,7 +1130,61 @@
 
 //reverse a linked list with iterartive approach
 //better sol
- class Linkedlist{
+//  class Linkedlist{
+//     public static class Node{
+//         int data;
+//         Node next;
+//         Node(int data){
+//             this.data=data;
+//         }
+//     }
+//     public static class linkedlist{
+//         Node head=null;
+//         Node tail=null;
+//         void addatend(int data){
+//             Node temp=new Node(data);
+//             if(head==null){
+//                 head=tail=temp;
+//             }else{
+//                 tail.next=temp;
+//                 tail=temp;
+//             }
+//         }
+//         void display(){
+//             Node t=head;
+//             while(t!=null){
+//                 System.out.println(t.data);
+//                 t=t.next;
+//             }
+//         }
+//         Node reverse(Node head){
+//             Node curr=head;
+//             Node prev=null;
+//             Node Next=null;
+//             while(curr!=null){
+//                 Next=curr.next;
+//                 curr.next=prev;
+//                 prev=curr;
+//                 curr=Next;
+//             }
+//             return prev;
+//         }
+//     }
+//     public static void main(String[] args) {
+//         linkedlist ll=new linkedlist();
+//         ll.addatend(5);
+//         ll.addatend(3);
+//         ll.addatend(1);
+//         ll.addatend(10);
+//         ll.addatend(50);
+//         ll.display();
+//         ll.head=ll.reverse(ll.head);
+//         ll.display();
+//     }
+//  }
+
+//palindrome
+class Linkedlist{
     public static class Node{
         int data;
         Node next;
@@ -1169,6 +1223,24 @@
             }
             return prev;
         }
+        boolean palindrome(Node head){
+            Node slow=head;
+            Node fast=head;
+            while(fast!=null && fast.next!=null){
+                slow=slow.next;
+                fast=fast.next.next;
+            }
+            Node t=reverse(slow.next);
+            slow.next=t;
+            Node p1= head;
+            Node p2=slow.next;
+            while(p2!=null){
+                if(p1.data!=p2.data) return false;
+                p1=p1.next;
+                p2=p2.next;
+            }
+            return true;
+        }
     }
     public static void main(String[] args) {
         linkedlist ll=new linkedlist();
@@ -1178,7 +1250,6 @@
         ll.addatend(10);
         ll.addatend(50);
         ll.display();
-        ll.head=ll.reverse(ll.head);
-        ll.display();
+        System.out.println(ll.palindrome(ll.head));
     }
  }
