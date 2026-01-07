@@ -1256,6 +1256,81 @@
 
 //find the max twin sum of a linked list
 //twins are from one end to that of other end
+// class Linkedlist{
+//     public static class Node{
+//         int data;
+//         Node next;
+//         Node(int data){
+//             this.data=data;
+//         }
+//     }
+//     public static class linkedlist{
+//         Node head=null;
+//         Node tail=null;
+//         void addatend(int data){
+//             Node temp=new Node(data);
+//             if(head==null){
+//                 head=tail=temp;
+//             }else{
+//                 tail.next=temp;
+//                 tail=temp;
+//             }
+//         }
+//         void display(){
+//             Node t=head;
+//             while(t!=null){
+//                 System.out.println(t.data);
+//                 t=t.next;
+//             }
+//         }
+//         Node reverse(Node head){
+//             Node curr=head;
+//             Node prev=null;
+//             Node Next=null;
+//             while(curr!=null){
+//                 Next=curr.next;
+//                 curr.next=prev;
+//                 prev=curr;
+//                 curr=Next;
+//             }
+//             return prev;
+//         }
+//         int max(Node head){
+//             Node slow=head;
+//             Node fast=head;
+//             int max=0;
+//             while(fast!=null && fast.next!=null){
+//                 slow=slow.next;
+//                 fast=fast.next.next;
+//             }
+//             Node t=reverse(slow.next);
+//             slow.next=t;
+//             Node p1= head;
+//             Node p2=slow.next;
+//             while(p2!=null){
+                
+//                 if(max<p1.data+p2.data){
+//                     max=p1.data+p2.data;
+//                 }
+//                 p1=p1.next;
+//                 p2=p2.next;
+//             }
+//             return max;
+//         }
+//     }
+//     public static void main(String[] args) {
+//         linkedlist ll=new linkedlist();
+//         ll.addatend(5);
+//         ll.addatend(3);
+//         ll.addatend(1);
+//         ll.addatend(10);
+//         ll.addatend(50);
+//         ll.display();
+//         System.out.println(ll.max(ll.head));
+//     }
+//  }
+
+//odd even linked list
 class Linkedlist{
     public static class Node{
         int data;
@@ -1283,39 +1358,26 @@ class Linkedlist{
                 t=t.next;
             }
         }
-        Node reverse(Node head){
-            Node curr=head;
-            Node prev=null;
-            Node Next=null;
-            while(curr!=null){
-                Next=curr.next;
-                curr.next=prev;
-                prev=curr;
-                curr=Next;
+        Node oddeven(Node head){
+            Node odd=new Node(0);
+            Node even=new Node(-1);
+            Node tempo=odd;
+            Node tempe=even;
+            Node temp=head;
+            while(temp!=null){
+                tempo.next=temp;
+                temp=temp.next;
+                tempo=tempo.next;
+
+                tempe.next=temp;
+                if(temp==null) break;
+                temp=temp.next;
+                tempe=tempe.next;
             }
-            return prev;
-        }
-        int max(Node head){
-            Node slow=head;
-            Node fast=head;
-            int max=0;
-            while(fast!=null && fast.next!=null){
-                slow=slow.next;
-                fast=fast.next.next;
-            }
-            Node t=reverse(slow.next);
-            slow.next=t;
-            Node p1= head;
-            Node p2=slow.next;
-            while(p2!=null){
-                
-                if(max<p1.data+p2.data){
-                    max=p1.data+p2.data;
-                }
-                p1=p1.next;
-                p2=p2.next;
-            }
-            return max;
+            odd=odd.next;
+            even=even.next;
+            tempo.next=even;
+            return odd;
         }
     }
     public static void main(String[] args) {
@@ -1326,6 +1388,8 @@ class Linkedlist{
         ll.addatend(10);
         ll.addatend(50);
         ll.display();
-        System.out.println(ll.max(ll.head));
+        Node t=ll.oddeven(ll.head);
+        ll.display();
     }
  }
+
