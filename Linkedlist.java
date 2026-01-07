@@ -906,75 +906,154 @@
 
 
 //deleting the middle
-public class Linkedlist {
-    public static class Node{
-        int data;
-        Node next;
-        public Node(int data){
-            this.data=data;
-        }
-    }
-    public static class LinkedList{
-        Node head=null;
-        Node tail=null;
-        int size=0;
-        void addatend(int data){
-            Node t=new Node(data);
-            if(head==null){
-                head=tail=t;
-            }
-            tail.next=t;
-            tail=t;
-        }
+// public class Linkedlist {
+//     public static class Node{
+//         int data;
+//         Node next;
+//         public Node(int data){
+//             this.data=data;
+//         }
+//     }
+//     public static class LinkedList{
+//         Node head=null;
+//         Node tail=null;
+//         int size=0;
+//         void addatend(int data){
+//             Node t=new Node(data);
+//             if(head==null){
+//                 head=tail=t;
+//             }
+//             tail.next=t;
+//             tail=t;
+//         }
     
-    void display(){
-        Node t=head;
-       while(t!=null){
-        System.out.println(t.data);
-        t=t.next;
-       }   
-    }
-    void insertatstart(int data){
-        Node temp=new Node(data);
-        if(head==null){
-            addatend(data);;
-        }
-        temp.next=head;
-        head=temp;
-    }
-    int size(){
-        Node t=head;
+//     void display(){
+//         Node t=head;
+//        while(t!=null){
+//         System.out.println(t.data);
+//         t=t.next;
+//        }   
+//     }
+//     void insertatstart(int data){
+//         Node temp=new Node(data);
+//         if(head==null){
+//             addatend(data);;
+//         }
+//         temp.next=head;
+//         head=temp;
+//     }
+//     int size(){
+//         Node t=head;
         
-        while(t!=null){
-            size++;
-            t=t.next;
-        }
-        return size;
-    }
-    Node deltemiddle(Node head){
-        if(head.next==null){
-            return null;
-        }
-        Node slow=head;
-        Node fast=head;
-        while(fast.next.next!=null && fast.next.next.next!=null){
-            slow=slow.next;
-            fast=fast.next.next;
-        }
-        slow.next=slow.next.next;
-        return head;
-    }
-}
+//         while(t!=null){
+//             size++;
+//             t=t.next;
+//         }
+//         return size;
+//     }
+//     Node deltemiddle(Node head){
+//         if(head.next==null){
+//             return null;
+//         }
+//         Node slow=head;
+//         Node fast=head;
+//         while(fast.next.next!=null && fast.next.next.next!=null){
+//             slow=slow.next;
+//             fast=fast.next.next;
+//         }
+//         slow.next=slow.next.next;
+//         return head;
+//     }
+// }
 
-    public static void main(String[] args) {
-        LinkedList ll=new LinkedList();
-        LinkedList l2=new LinkedList();
-        ll.addatend(5);
-        ll.addatend(3);
-        ll.addatend(1);
-        ll.addatend(15);
-        ll.addatend(50);
-        ll.deltemiddle(ll.head);
-        ll.display();
-    }
-}
+//     public static void main(String[] args) {
+//         LinkedList ll=new LinkedList();
+//         LinkedList l2=new LinkedList();
+//         ll.addatend(5);
+//         ll.addatend(3);
+//         ll.addatend(1);
+//         ll.addatend(15);
+//         ll.addatend(50);
+//         ll.deltemiddle(ll.head);
+//         ll.display();
+//     }
+// }
+
+
+//cycle in a linked list
+// public class Linkedlist {
+//     public static class Node{
+//         int data;
+//         Node next;
+//         public Node(int data){
+//             this.data=data;
+//         }
+//     }
+//     public static class LinkedList{
+//         Node head=null;
+//         Node tail=null;
+//         int size=0;
+//         void addatend(int data){
+//             Node t=new Node(data);
+//             if(head==null){
+//                 head=tail=t;
+//             }
+//             tail.next=t;
+//             tail=t;
+//         }
+    
+//     void display(){
+//         Node t=head;
+//        while(t!=null){
+//         System.out.println(t.data);
+//         t=t.next;
+//        }   
+//     }
+//     void insertatstart(int data){
+//         Node temp=new Node(data);
+//         if(head==null){
+//             addatend(data);;
+//         }
+//         temp.next=head;
+//         head=temp;
+//     }
+//     int size(){
+//         Node t=head;
+        
+//         while(t!=null){
+//             size++;
+//             t=t.next;
+//         }
+//         return size;
+//     }
+//    boolean cycle(Node head){
+//     if(head==null ||head.next==null){
+//         return false;
+//     }
+//     Node slow=head;
+//     Node fast=head;
+//     while(fast!=null && fast.next!=null){
+//         slow=slow.next;
+//         fast=fast.next.next;
+//         if(fast==slow) return true;
+//     }
+//     return false;
+//    }
+// }
+
+//     public static void main(String[] args) {
+//         LinkedList ll=new LinkedList();
+        
+//         ll.addatend(5);
+//         ll.addatend(3);
+//         ll.addatend(1);
+//         ll.addatend(15);
+//         ll.addatend(50);
+//         ll.display();
+//         System.out.println(ll.cycle(ll.head));
+//     }
+// }
+
+
+//reverse a linked list and return its new head
+
