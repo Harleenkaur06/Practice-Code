@@ -1057,73 +1057,128 @@
 
 //reverse a linked list and return its new head
 
-public class Linkedlist {
+// public class Linkedlist {
+//     public static class Node{
+//         int data;
+//         Node next;
+//         public Node(int data){
+//             this.data=data;
+//         }
+//     }
+//     public static class LinkedList{
+//         Node head=null;
+//         Node tail=null;
+//         int size=0;
+//         void addatend(int data){
+//             Node t=new Node(data);
+//             if(head==null){
+//                 head=tail=t;
+//             }
+//             tail.next=t;
+//             tail=t;
+//         }
+    
+//     void display(){
+//         Node t=head;
+//        while(t!=null){
+//         System.out.println(t.data);
+//         t=t.next;
+//        }   
+//     }
+//     void insertatstart(int data){
+//         Node temp=new Node(data);
+//         if(head==null){
+//             addatend(data);;
+//         }
+//         temp.next=head;
+//         head=temp;
+//     }
+//     int size(){
+//         Node t=head;
+        
+//         while(t!=null){
+//             size++;
+//             t=t.next;
+//         }
+//         return size;
+//     }
+//     Node reverse(Node head){
+//         if(head.next==null){
+//             return head;
+//         }
+//         Node newhead=reverse(head.next);
+//         head.next.next=head;
+//         head.next=null;
+//         return newhead;
+//     }
+// }
+
+//     public static void main(String[] args) {
+//         LinkedList ll=new LinkedList();
+        
+//         ll.addatend(5);
+//         ll.addatend(3);
+//         ll.addatend(1);
+//         ll.addatend(15);
+//         ll.addatend(50);
+//         //ll.display();
+//         ll.head=ll.reverse(ll.head);
+//         ll.display();
+        
+//     }
+// }
+
+//reverse a linked list with iterartive approach
+//better sol
+ class Linkedlist{
     public static class Node{
         int data;
         Node next;
-        public Node(int data){
+        Node(int data){
             this.data=data;
         }
     }
-    public static class LinkedList{
+    public static class linkedlist{
         Node head=null;
         Node tail=null;
-        int size=0;
         void addatend(int data){
-            Node t=new Node(data);
+            Node temp=new Node(data);
             if(head==null){
-                head=tail=t;
+                head=tail=temp;
+            }else{
+                tail.next=temp;
+                tail=temp;
             }
-            tail.next=t;
-            tail=t;
         }
-    
-    void display(){
-        Node t=head;
-       while(t!=null){
-        System.out.println(t.data);
-        t=t.next;
-       }   
-    }
-    void insertatstart(int data){
-        Node temp=new Node(data);
-        if(head==null){
-            addatend(data);;
+        void display(){
+            Node t=head;
+            while(t!=null){
+                System.out.println(t.data);
+                t=t.next;
+            }
         }
-        temp.next=head;
-        head=temp;
-    }
-    int size(){
-        Node t=head;
-        
-        while(t!=null){
-            size++;
-            t=t.next;
+        Node reverse(Node head){
+            Node curr=head;
+            Node prev=null;
+            Node Next=null;
+            while(curr!=null){
+                Next=curr.next;
+                curr.next=prev;
+                prev=curr;
+                curr=Next;
+            }
+            return prev;
         }
-        return size;
     }
-    Node reverse(Node head){
-        if(head.next==null){
-            return head;
-        }
-        Node newhead=reverse(head.next);
-        head.next.next=head;
-        head.next=null;
-        return newhead;
-    }
-}
-
     public static void main(String[] args) {
-        LinkedList ll=new LinkedList();
-        
+        linkedlist ll=new linkedlist();
         ll.addatend(5);
         ll.addatend(3);
         ll.addatend(1);
-        ll.addatend(15);
+        ll.addatend(10);
         ll.addatend(50);
-        //ll.display();
+        ll.display();
         ll.head=ll.reverse(ll.head);
         ll.display();
-        
     }
-}
+ }
