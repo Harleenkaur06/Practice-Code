@@ -1057,3 +1057,73 @@
 
 //reverse a linked list and return its new head
 
+public class Linkedlist {
+    public static class Node{
+        int data;
+        Node next;
+        public Node(int data){
+            this.data=data;
+        }
+    }
+    public static class LinkedList{
+        Node head=null;
+        Node tail=null;
+        int size=0;
+        void addatend(int data){
+            Node t=new Node(data);
+            if(head==null){
+                head=tail=t;
+            }
+            tail.next=t;
+            tail=t;
+        }
+    
+    void display(){
+        Node t=head;
+       while(t!=null){
+        System.out.println(t.data);
+        t=t.next;
+       }   
+    }
+    void insertatstart(int data){
+        Node temp=new Node(data);
+        if(head==null){
+            addatend(data);;
+        }
+        temp.next=head;
+        head=temp;
+    }
+    int size(){
+        Node t=head;
+        
+        while(t!=null){
+            size++;
+            t=t.next;
+        }
+        return size;
+    }
+    Node reverse(Node head){
+        if(head.next==null){
+            return head;
+        }
+        Node newhead=reverse(head.next);
+        head.next.next=head;
+        head.next=null;
+        return newhead;
+    }
+}
+
+    public static void main(String[] args) {
+        LinkedList ll=new LinkedList();
+        
+        ll.addatend(5);
+        ll.addatend(3);
+        ll.addatend(1);
+        ll.addatend(15);
+        ll.addatend(50);
+        //ll.display();
+        ll.head=ll.reverse(ll.head);
+        ll.display();
+        
+    }
+}
