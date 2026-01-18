@@ -957,3 +957,373 @@
 
 //     }
 // }
+
+
+//practiceeeeeeeeeeeeeee
+// import java.util.*;
+// class Stackk{
+//     public static void main(String[] args) {
+//         Stack<Integer> st=new Stack<>();
+//         st.push(1);
+//         st.push(2);
+//         st.push(3);
+//         st.pop();
+//         System.out.println(st);
+        
+//     }
+// }
+
+//copy a stack
+// import java.util.*;
+// class Stackk{
+//     public static void main(String[] args) {
+//         Stack<Integer> st=new Stack<>();
+//         st.push(1);
+//         st.push(2);
+//         st.push(3);
+//         st.push(10);
+//         System.out.println(st);
+//         Stack<Integer> temp=new Stack<>();
+//         Stack<Integer> st2=new Stack<>();
+//         while(st.size()>0){
+//             temp.push(st.pop());
+//         }
+//         System.out.println(temp);
+//         while(temp.size()>0){
+//             st2.push(temp.pop());
+//         }
+//         System.out.println(st2);
+//     }
+// }
+
+//insert at bootom
+// import java.util.*;
+// class Stackk{
+//     public static void main(String[] args) {
+//         Stack<Integer> st=new Stack<>();
+//         st.push(1);
+//         st.push(2);
+//         st.push(3);
+//         st.push(10);
+//         System.out.println(st);
+//         Stack<Integer> temp=new Stack<>();
+//         int idx=2;
+//         int x=10;
+//         while(st.size()>idx){
+//             temp.push(st.pop());
+//         }
+        
+//         st.push(x);
+//         while(temp.size()>0){
+//             st.push(temp.pop());
+//         }
+//         System.out.println(st);
+//     }
+// }
+
+//printing
+// import java.util.*;
+// class Stackk{
+//     public static void print(Stack<Integer> st){
+//         Stack<Integer> t=new Stack<>();
+//         while(st.size()>0){
+//             t.push(st.pop());
+//         }
+//         while(t.size()>0){
+//             System.out.println(t.peek());
+//             st.push(t.pop());
+//         }
+//     }
+//     public static void main(String[] args) {
+//         Stack<Integer> st=new Stack<>();
+//         st.push(1);
+//         st.push(2);
+//         st.push(3);
+//         st.push(10);
+//         print(st);
+        
+//     }
+// }
+
+//recursively
+// import java.util.*;
+// class Stackk{
+//     public static void print(Stack<Integer> st){
+//         if(st.size()==0) return;
+//         int top=st.pop();
+       
+//         print(st);
+//          System.out.println(top);
+//     }
+//     public static void main(String[] args) {
+//         Stack<Integer> st=new Stack<>();
+//         st.push(1);
+//         st.push(2);
+//         st.push(3);
+//         st.push(10);
+//         print(st);
+        
+//     }
+// }
+
+//push at bottom rec
+// import java.util.*;
+// class Stackk{
+//     public static void push(Stack<Integer>st,int d){
+//         if(st.size()==0){
+//             st.push(d);
+//             return;}
+//         int top=st.pop();
+        
+//         push(st,d);
+//         st.push(top);
+//     }
+//     public static void reverse(Stack<Integer> st){
+//         if(st.size()==0) return;
+//         int top=st.pop();
+//         reverse(st);
+//         push(st, top);
+//     }
+//     public static void display(Stack<Integer> s){
+//        if(s.size()==0) return;
+//        int top=s.pop();
+       
+//        display(s);
+//        System.out.println(top);
+//     }
+//     public static void main(String[] args) {
+//         Stack<Integer> st=new Stack<>();
+//         st.push(1);
+//         st.push(2);
+//         st.push(3);
+//         st.push(10);
+//        reverse(st);
+//         //System.out.println(st);
+//         display(st);
+//     }
+// }
+
+//array implemetation
+// class Stackk{
+//     public static class stack{
+//         int[] arr=new int[100];
+//         int idx=-1;
+//         void push(int data){
+//             arr[++idx]=data;
+
+//         }
+//         void display(){
+//             for(int i=0;i<=idx;i++){
+//                 System.out.println(arr[i]+" ");
+//             }
+//         }
+//         int peek(){
+//             if(idx==-1){
+//                 System.out.println("empty");
+//                 return -1;
+//             }
+//             return arr[idx];
+//         }
+//         int pop(){
+//             if(idx==-1){
+//                 return -1;
+//             }else{
+//                 int top=arr[idx];
+                
+//                 idx--;
+//                 return top;
+//             }
+//         }
+//     }
+//     public static void main(String[] args) {
+//         stack st=new stack();
+//         st.push(4);
+//         st.push(5);
+//         st.push(40);
+//         st.push(50);
+//         st.push(400);
+//         st.push(500);
+//         st.display();
+//         int top=st.peek();
+//         System.out.println(top);
+//         int pop=st.pop();
+//         System.out.println(pop);
+//         st.display();
+//     }
+// }
+
+//implementation using ll
+// class Stackk{
+//     public static class Node{
+//         int data;
+//         Node next;
+//         Node(int data){
+//             this.data=data;
+//         }
+//     }
+//     public static class stack{
+//         Node head=null;
+//         int size=0;
+//         void push(int data){
+//             Node temp=new Node(data);
+//             if(head==null){
+//                 head=temp;
+//                 size++;
+//                 return;
+//             }else{
+//                 temp.next=head;
+//                 head=temp;
+//                 size++;
+//             }
+
+//         }
+//         void display(){
+//             Node t=head;
+//             while(t!=null){
+//                 System.out.println(t.data);
+//                 t=t.next;
+//             }
+//         }
+//         int peek(){
+//            if(head==null){
+//             System.out.println("empty");
+//             return -1;
+//            }else{
+//              return head.data;
+//            }
+//         }
+//         int pop(){
+//             if(head==null){
+//                 System.out.println("empty");
+//                 return -1;
+//             }else{
+//                 int top=head.data;
+//                 head=head.next;
+//                 return top;
+//             }
+//         }
+//     }
+//     public static void main(String[] args) {
+//         stack st=new stack();
+//         st.push(4);
+//         st.push(5);
+//         st.push(40);
+//         st.push(50);
+//         st.push(400);
+//         st.push(500);
+//         st.display();
+//         int top=st.peek();
+//         System.out.println(top);
+//         int pop=st.pop();
+//         System.out.println(pop);
+//         st.display();
+//     }
+// }
+
+//balanced prackets
+// import java.util.*;
+// class Stackk{
+//     public static boolean balance(String str){
+//         Stack<Character> st=new Stack<>();
+//         int i=0;
+//         while(i<str.length()){
+//             char ch=str.charAt(i);
+//             if(ch=='('){
+//                 st.push(ch);
+//             }else{
+//                 if (st.size()==0){
+//                     return false;
+//                 }else if(st.peek()=='('){
+//                     st.pop();
+//                 }
+//             }
+//             i++;
+//         }
+//         if(st.size()>0) return false;
+//         else return true;
+//     }
+//     public static void main(String[] args) {
+//         String str="())())";
+//         System.out.println(balance(str));
+//     }
+// }
+
+//find the minimum number to balance
+// class Stackk{
+//     public static int balance(String str){
+        
+//         int i=0;
+//         int open=0;
+//         int remove=0;
+//         while(i<str.length()){
+//             char ch=str.charAt(i);
+//             if(ch=='('){
+//                 open++;
+//             }else if(ch==')'){
+//                 if(open>0){
+//                     open--;
+//                 }else{
+//                     remove++;
+//                 }
+//             }
+//             i++;
+//         }
+//         return remove+open;
+//     }
+//     public static void main(String[] args) {
+//         String str="())())";
+//         System.out.println(balance(str));
+//     }
+// }
+
+//no. ofbracket to reverse
+// class Stackk{
+//     public static int balance(String str){
+        
+//         int i=0;
+//         int open=0;
+//         int close=0;
+//         while(i<str.length()){
+//             char ch=str.charAt(i);
+//             if(ch=='('){
+//                 open++;
+//             }else if(ch==')'){
+//                 if(open>0){
+//                     open--;
+//                 }else{
+//                     close++;
+//                 }
+//             }
+//             i++;
+//         }
+//         return (open + 1) / 2 + (close + 1) / 2;
+//     }
+//     public static void main(String[] args) {
+//         String str="())())";
+//         System.out.println(balance(str));
+//     }
+// }
+
+ //next greater
+import java.util.*;
+ class Stackk{
+    public static void main(String[] args) {
+        int[] arr={1,3,2,1,8,6,3,4};
+        int n=arr.length;
+        int[] res=new int[n];
+        Stack<Integer> st=new Stack<>();
+        res[n-1]=-1;
+        st.push(arr[n-1]);
+        for(int i=n-2;i>=0;i--){
+            while(st.size()>0 && st.peek()<arr[i]){
+                st.pop();
+            }
+            if(st.size()==0) res[i]=-1;
+            else res[i]=st.peek();
+            st.push(arr[i]);
+        }
+        for(int i=0;i<n;i++){
+            System.out.println(res[i]);
+        }
+    }
+ }

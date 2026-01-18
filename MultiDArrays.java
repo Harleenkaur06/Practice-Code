@@ -74,7 +74,7 @@
 //         int[][] mul=new int[r1][c2];
 //         for(int i=0;i<r1;i++){
 //             for(int j=0;j<c2;j++){
-//                 for(int k=0;k<r2;k++){
+//                 for(int k=0;k<c1;k++){
 //                     /*
 //                     mul[i][j]=ith row of a matrix and jth col of a matrix;
 //                      */
@@ -193,6 +193,7 @@
 //                 arr[i][j]=sc.nextInt();
 //             }
 //         }
+//transpose
 //         for(int i=0;i<n;i++){
 //             for(int j=i;j<n;j++){
 //                 int temp=arr[i][j];

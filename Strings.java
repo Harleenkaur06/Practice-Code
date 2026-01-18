@@ -363,29 +363,55 @@
 // }
 
 //non repeating character
-import java.util.Scanner;
+// import java.util.Scanner;
 
-class Strings {
+// class Strings {
+//     public static void main(String[] args) {
+//         Scanner sc = new Scanner(System.in);
+//         String s = sc.next();
+
+//         int[] freq = new int[256]; 
+
+//         for (int i = 0; i < s.length(); i++) {
+//             freq[s.charAt(i)]++;
+//         }
+
+//         for (int i = 0; i < s.length(); i++) {
+//             if (freq[s.charAt(i)] == 1) {
+//                 System.out.println(s.charAt(i));
+//                 return;
+//             }
+//         }
+
+//         System.out.println("No non-repeating character found");
+//     }
+// }
+
+//jumbled string code
+import java.util.*;
+class Strings{
+    public static String jumble(String s,String s2){
+        StringBuilder str=new StringBuilder();
+        int i=0,j=0;
+        while(i<s.length() && j<s2.length()){
+            str.append(s.charAt(i++));
+            str.append(s2.charAt(j++));
+        }
+        while(i<s.length()){
+            str.append(s.charAt(i++));
+        }
+        while(j<s2.length()){
+            str.append(s2.charAt(j++));
+        }
+        return str.toString();
+    }
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        String s = sc.next();
-
-        int[] freq = new int[256]; 
-
-        for (int i = 0; i < s.length(); i++) {
-            freq[s.charAt(i)]++;
-        }
-
-        for (int i = 0; i < s.length(); i++) {
-            if (freq[s.charAt(i)] == 1) {
-                System.out.println(s.charAt(i));
-                return;
-            }
-        }
-
-        System.out.println("No non-repeating character found");
+        Scanner sc=new Scanner(System.in);
+        String s=sc.nextLine();
+        String s2=sc.nextLine();
+        String res=jumble(s,s2);
+        System.out.println(res);
     }
 }
-
 
 

@@ -1,4 +1,5 @@
 
+import java.util.*;
 // public class Queues {
 //     public static void main(String[] args) {
 //         Queue<Integer> q=new LinkedList<>();
@@ -289,49 +290,50 @@
 
 //implement stack using queues
 
-import java.util.*;
+// import java.util.*;
 
-class Queues{
-    public static class SQueue{
-        Queue<Integer> q1=new LinkedList<>();
-        void push(int val){
-            q1.add(val);
-        }
-        int peek(){
-            for(int i=1;i<=q1.size()-1;i++){
-                q1.add(q1.remove());
-            }
-            int x=q1.peek();
-            q1.add(q1.remove());
-            return x;
-        }
-        int pop(){
-            for(int i=1;i<=q1.size()-1;i++){
-                q1.add(q1.remove());
-            }
-            int x=q1.poll();
-            return x;
-        }
-        void display(){
-            for(int i=0;i<q1.size();i++){
-                int x=q1.poll();
-                System.out.print(x+" ");
-                q1.add(x);
-            }
-            System.out.println();
-        }
+// class Queues{
+//     public static class SQueue{
+//         Queue<Integer> q1=new LinkedList<>();
+//         void push(int val){
+//             q1.add(val);
+//         }
+//         int peek(){
+//             for(int i=1;i<=q1.size()-1;i++){
+//                 q1.add(q1.remove());
+//             }
+//             int x=q1.peek();
+//             q1.add(q1.remove());
+//             return x;
+//         }
+//         int pop(){
+//             for(int i=1;i<=q1.size()-1;i++){
+//                 q1.add(q1.remove());
+//             }
+//             int x=q1.poll();
+//             return x;
+//         }
+//         void display(){
+//             for(int i=0;i<q1.size();i++){
+//                 int x=q1.poll();
+//                 System.out.print(x+" ");
+//                 q1.add(x);
+//             }
+//             System.out.println();
+//         }
          
-    }
-    public static void main(String[] args) {
-        SQueue q=new SQueue();
-        q.push(1);
-        q.push(2);
-        q.push(3);
-        q.push(4);
-        q.push(5);
-        q.display();
-        q.pop();
-        q.pop();
-        q.display();
-    }
-}
+//     }
+//     public static void main(String[] args) {
+//         SQueue q=new SQueue();
+//         q.push(1);
+//         q.push(2);
+//         q.push(3);
+//         q.push(4);
+//         q.push(5);
+//         q.display();
+//         q.pop();
+//         q.pop();
+//         q.display();
+//     }
+// }
+

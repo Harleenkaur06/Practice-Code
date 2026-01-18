@@ -1331,6 +1331,69 @@
 //  }
 
 //odd even linked list
+// class Linkedlist{
+//     public static class Node{
+//         int data;
+//         Node next;
+//         Node(int data){
+//             this.data=data;
+//         }
+//     }
+//     public static class linkedlist{
+//         Node head=null;
+//         Node tail=null;
+//         void addatend(int data){
+//             Node temp=new Node(data);
+//             if(head==null){
+//                 head=tail=temp;
+//             }else{
+//                 tail.next=temp;
+//                 tail=temp;
+//             }
+//         }
+//         void display(){
+//             Node t=head;
+//             while(t!=null){
+//                 System.out.println(t.data);
+//                 t=t.next;
+//             }
+//         }
+//         Node oddeven(Node head){
+//             Node odd=new Node(0);
+//             Node even=new Node(-1);
+//             Node tempo=odd;
+//             Node tempe=even;
+//             Node temp=head;
+//             while(temp!=null){
+//                 tempo.next=temp;
+//                 temp=temp.next;
+//                 tempo=tempo.next;
+
+//                 tempe.next=temp;
+//                 if(temp==null) break;
+//                 temp=temp.next;
+//                 tempe=tempe.next;
+//             }
+//             odd=odd.next;
+//             even=even.next;
+//             tempo.next=even;
+//             return odd;
+//         }
+//     }
+//     public static void main(String[] args) {
+//         linkedlist ll=new linkedlist();
+//         ll.addatend(5);
+//         ll.addatend(3);
+//         ll.addatend(1);
+//         ll.addatend(10);
+//         ll.addatend(50);
+//         ll.display();
+//         Node t=ll.oddeven(ll.head);
+//         ll.display();
+//     }
+//  }
+
+//deep copy
 class Linkedlist{
     public static class Node{
         int data;
@@ -1358,27 +1421,7 @@ class Linkedlist{
                 t=t.next;
             }
         }
-        Node oddeven(Node head){
-            Node odd=new Node(0);
-            Node even=new Node(-1);
-            Node tempo=odd;
-            Node tempe=even;
-            Node temp=head;
-            while(temp!=null){
-                tempo.next=temp;
-                temp=temp.next;
-                tempo=tempo.next;
-
-                tempe.next=temp;
-                if(temp==null) break;
-                temp=temp.next;
-                tempe=tempe.next;
-            }
-            odd=odd.next;
-            even=even.next;
-            tempo.next=even;
-            return odd;
-        }
+        
     }
     public static void main(String[] args) {
         linkedlist ll=new linkedlist();
@@ -1388,8 +1431,7 @@ class Linkedlist{
         ll.addatend(10);
         ll.addatend(50);
         ll.display();
-        Node t=ll.oddeven(ll.head);
-        ll.display();
+        
     }
  }
 
