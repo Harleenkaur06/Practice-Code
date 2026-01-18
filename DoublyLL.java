@@ -287,6 +287,14 @@ public class DoublyLL {
             head=head.next;
             head.prev=null;
         }
+        void deleteattail(){
+            Node t=head;
+            while(t.next!=null){
+                t=t.next;
+            }
+            t=t.prev;
+            t.next=null;
+        }
     }
     public static void main(String[] args) {
         doubly ll=new doubly();
@@ -299,6 +307,8 @@ public class DoublyLL {
         ll.addatindex(3,400);
         ll.display();
         ll.deleteathead();
+        ll.display();
+        ll.deleteattail();
         ll.display();
     }
 }
