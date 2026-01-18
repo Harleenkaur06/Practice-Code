@@ -51,6 +51,50 @@
 // }
 
 //inserting in dll
+// public class DoublyLL {
+//     public static class Node{
+//         int data;
+//         Node next;
+//         Node prev;
+//         Node(int data){
+//             this.data=data;
+//         }
+//     }
+//     public static class doubly{
+//         Node head=null;
+//         Node tail=null;
+//         void addatlast(int val){
+//             Node newnode=new Node(val);
+//             if(head==null){
+//                 head=tail=newnode;
+//             }else{
+//                 newnode.prev=tail;
+//                 tail.next=newnode;
+//                 tail=newnode;
+//             }
+//         }
+    
+        
+//         void display(){
+//             Node t=head;
+//             while(t!=null){
+//                 System.out.print(t.data+" ");
+//                 t=t.next;
+//             }
+//             System.out.println();
+//         }
+        
+//     }
+//     public static void main(String[] args) {
+//         doubly ll=new doubly();
+//         ll.addatlast(4);
+//         ll.addatlast(3);
+//         ll.addatlast(2);
+//         ll.addatlast(1);
+//         ll.display();;
+//     }
+// }
+
 public class DoublyLL {
     public static class Node{
         int data;
@@ -74,7 +118,18 @@ public class DoublyLL {
             }
         }
     
-        
+        void addatfirst(int val){
+            Node newnode=new Node(val);
+            if(head==null){
+                head=tail=newnode;
+            }else{
+                head.prev=newnode;
+                newnode.next=head;
+                head=newnode;
+
+            }
+
+        }
         void display(){
             Node t=head;
             while(t!=null){
@@ -83,7 +138,7 @@ public class DoublyLL {
             }
             System.out.println();
         }
-        
+       
     }
     public static void main(String[] args) {
         doubly ll=new doubly();
@@ -91,6 +146,9 @@ public class DoublyLL {
         ll.addatlast(3);
         ll.addatlast(2);
         ll.addatlast(1);
-        ll.display();;
+        ll.display();
+        ll.addatfirst(100);
+        ll.display();
+       
     }
 }
