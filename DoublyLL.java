@@ -156,6 +156,77 @@
 
 
 //add at any index
+// public class DoublyLL {
+//     public static class Node{
+//         int data;
+//         Node next;
+//         Node prev;
+//         Node(int data){
+//             this.data=data;
+//         }
+//     }
+//     public static class doubly{
+//         Node head=null;
+//         Node tail=null;
+//         void addatlast(int val){
+//             Node newnode=new Node(val);
+//             if(head==null){
+//                 head=tail=newnode;
+//             }else{
+//                 newnode.prev=tail;
+//                 tail.next=newnode;
+//                 tail=newnode;
+//             }
+//         }
+    
+//         void addatfirst(int val){
+//             Node newnode=new Node(val);
+//             if(head==null){
+//                 head=tail=newnode;
+//             }else{
+//                 head.prev=newnode;
+//                 newnode.next=head;
+//                 head=newnode;
+
+//             }
+
+//         }
+//         void display(){
+//             Node t=head;
+//             while(t!=null){
+//                 System.out.print(t.data+" ");
+//                 t=t.next;
+//             }
+//             System.out.println();
+//         }
+//         void addatindex(int idx,int val){
+//             Node t=head;
+//            for(int i=1;i<idx;i++){
+//             t=t.next;
+//            }
+//            Node r=t.next;
+//            Node newnode=new Node(val);
+//            t.next=newnode;
+//            newnode.prev=t;
+//            newnode.next=r;
+//            r.prev=newnode;
+
+//         }
+//     }
+//     public static void main(String[] args) {
+//         doubly ll=new doubly();
+//         ll.addatlast(4);
+//         ll.addatlast(3);
+//         ll.addatlast(2);
+//         ll.addatlast(1);
+//         ll.addatfirst(100);
+//         ll.display();
+//         ll.addatindex(3,400);
+//         ll.display();
+//     }
+// }
+
+//delete at head;
 public class DoublyLL {
     public static class Node{
         int data;
@@ -212,6 +283,10 @@ public class DoublyLL {
            r.prev=newnode;
 
         }
+        void deleteathead(){
+            head=head.next;
+            head.prev=null;
+        }
     }
     public static void main(String[] args) {
         doubly ll=new doubly();
@@ -222,6 +297,8 @@ public class DoublyLL {
         ll.addatfirst(100);
         ll.display();
         ll.addatindex(3,400);
+        ll.display();
+        ll.deleteathead();
         ll.display();
     }
 }
