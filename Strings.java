@@ -388,30 +388,46 @@
 // }
 
 //jumbled string code
-import java.util.*;
-class Strings{
-    public static String jumble(String s,String s2){
-        StringBuilder str=new StringBuilder();
-        int i=0,j=0;
-        while(i<s.length() && j<s2.length()){
-            str.append(s.charAt(i++));
-            str.append(s2.charAt(j++));
+// import java.util.*;
+// class Strings{
+//     public static String jumble(String s,String s2){
+//         StringBuilder str=new StringBuilder();
+//         int i=0,j=0;
+//         while(i<s.length() && j<s2.length()){
+//             str.append(s.charAt(i++));
+//             str.append(s2.charAt(j++));
+//         }
+//         while(i<s.length()){
+//             str.append(s.charAt(i++));
+//         }
+//         while(j<s2.length()){
+//             str.append(s2.charAt(j++));
+//         }
+//         return str.toString();
+//     }
+//     public static void main(String[] args) {
+//         Scanner sc=new Scanner(System.in);
+//         String s=sc.nextLine();
+//         String s2=sc.nextLine();
+//         String res=jumble(s,s2);
+//         System.out.println(res);
+//     }
+// }
+
+
+//coin toss problem
+class First{
+    public static void toss(int n,String str){
+        if(n==0){
+            System.out.println(str);
+            return; 
         }
-        while(i<s.length()){
-            str.append(s.charAt(i++));
-        }
-        while(j<s2.length()){
-            str.append(s2.charAt(j++));
-        }
-        return str.toString();
+        toss(n-1,str+"H");
+        toss(n-1,str+"t");
     }
-    public static void main(String[] args) {
-        Scanner sc=new Scanner(System.in);
-        String s=sc.nextLine();
-        String s2=sc.nextLine();
-        String res=jumble(s,s2);
-        System.out.println(res);
+    public static void main(String[] args){
+        int n=3;
+        toss(n,"");
     }
 }
-
 
